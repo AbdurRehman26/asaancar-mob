@@ -47,19 +47,6 @@ const SignupScreen = ()=> {
                 </TouchableOpacity>
             </View>
 
-            <Text style={tailwind`text-center p-4 text-lg`}>OR</Text>
-
-            <View>
-                <TouchableOpacity
-                    style={tailwind`rounded bg-blue-200 p-4`}>
-                    <Text style={tailwind`text-center text-blue-600 font-bold`}>Continue with Facebook</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                    style={tailwind`rounded bg-red-200 p-4 mt-4`}>
-                    <Text style={tailwind`text-center text-red-600 font-bold`}>Continue with Google</Text>
-                </TouchableOpacity>
-            </View>
-
             <View style={tailwind`mt-5`}>
                 <Text style={tailwind`text-black text-center`}>By signing up, you agree to GoGoRide's</Text>
                 <Text style={tailwind`text-black text-center`}>Terms of Service and Privacy Policy</Text>
