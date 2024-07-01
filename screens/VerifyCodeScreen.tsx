@@ -27,9 +27,9 @@ const styles = StyleSheet.create({
     },
 });
 
-const CELL_COUNT = 6;
+const CELL_COUNT = 4;
 
-const VerifyCode = ()=> {
+const VerifyCodeScreen = ()=> {
 
     const [value, setValue] = useState('');
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
@@ -85,4 +85,4 @@ const VerifyCode = ()=> {
     );
 };
 
-export default VerifyCode
+export default VerifyCodeScreen

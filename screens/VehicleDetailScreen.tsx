@@ -1,0 +1,105 @@
+import {Text, View, TouchableOpacity, StyleSheet} from "react-native";
+import VehicleMediaSwiper from "../components/VehicleMediaSwiper";
+import tw from "tailwind-react-native-classnames";
+import {Avatar, Button, Icon} from "react-native-elements";
+import tailwind from "tailwind-react-native-classnames";
+import React, {useState} from "react";
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#F5F5F5',
+    },
+    radioButton: {
+        marginRight: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 16,
+        borderRadius: 8,
+        marginVertical: 8,
+        borderWidth: 1,
+        borderColor: '#007BFF',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        width: 100,
+    },
+    radioButtonText: {
+        fontSize: 16,
+    },
+});
+const CustomRadioButton = ({ label, selected, onSelect }) => (
+    <TouchableOpacity
+        style={[styles.radioButton,
+            { backgroundColor: selected ? '#007BFF' : '#FFF' }]}
+        onPress={onSelect}
+    >
+        <Text style={[styles.radioButtonText,
+            { color: selected ? '#FFF' : '#000' }]}>
+            {label}
+        </Text>
+    </TouchableOpacity>
+);
+const VehicleDetailScreen = ()=> {
+    const [selectedValue, setSelectedValue] = useState(null);
+
+    return (
+        <View>
+            <View style={tw`h-80`}>
+                <VehicleMediaSwiper/>
+            </View>
+            <View style={tw`flex-row justify-between p-4`}>
+                <Text style={tw`font-semibold text-2xl`}>Tesla</Text>
+                <Text style={tw`font-semibold text-2xl`}>200/hr</Text>
+            </View>
+            <View style={tw`flex-row px-4 items-center`}>
+                <Icon name={'star'}></Icon>
+                <Text style={tw` text-xl`}>5.0 -</Text>
+                <Text style={tw` text-xl`}> 10 Trips</Text>
+            </View>
+
+            <View style={tw`p-4`}>
+                <Text style={tw`font-bold text-2xl`}>Driver</Text>
+                <View style={tw`rounded-lg bg-red-200 mt-2 p-4 flex-row justify-between`}>
+                    <View style={tw`flex-row`}>
+                        <Avatar
+                            overlayContainerStyle={tailwind`bg-red-600`}
+                            size="large"
+                            rounded
+                            title="CR"
+                            onPress={() => console.log("Works!")}
+                            activeOpacity={0.7}
+                        />
+                        <View style={tw`font-semibold text-2xl mx-2`}>
+                            <Text style={tw`text-xl`}>Tesla</Text>
+                            <Text style={tw`text-xl`}>Tesla</Text>
+                        </View>
+                    </View>
+                    <View style={tw`flex-row`}>
+                        <Icon name={'message'} />
+                        <Icon name={'call'} />
+                    </View>
+                </View>
+            </View>
+
+            <View style={tw`p-4`}>
+                <Text style={tw`font-bold text-2xl`}>Rent Type</Text>
+                <View style={tw`pb-4 pt-0 flex-row`}>
+                    <CustomRadioButton
+                        label="With Driver"
+                        selected={selectedValue === 'option1'}
+                        onSelect={() => setSelectedValue('option1')}
+                    />
+                    <CustomRadioButton
+                        label="Driver"
+                        selected={selectedValue === 'option2'}
+                        onSelect={() => setSelectedValue('option2')}
+                    />
+                </View>
+            </View>
+        </View>
+    );
+};
+
+export default VehicleDetailScreen;

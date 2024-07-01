@@ -4,24 +4,34 @@ import MapScreen from "../screens/MapScreen";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import SignupScreen from "../screens/SignupScreen";
-import VerifyCode from "../screens/VerifyCode";
+import VerifyCodeScreen from "../screens/VerifyCodeScreen";
+import ProfileScreen from "../screens/ProfileScreen";
+import AllowLocation from "../screens/AllowLocation";
+import ManualLocation from "../screens/ManualLocation";
+import VehicleList from "../screens/VehicleList";
+import VehicleDetail from "../screens/VehicleDetailScreen";
 
 export type StackList = {
-  HomeScreen: undefined;
-  MapScreen: undefined;
-  EatsScreen: undefined;
-  SignupScreen: undefined;
-  VerifyCode: undefined;
+    HomeScreen: undefined;
+    MapScreen: undefined;
+    EatsScreen: undefined;
+    SignupScreen: undefined;
+    VerifyCodeScreen: undefined;
+    ProfileScreen: undefined;
+    AllowLocation:undefined;
+    ManualLocation:undefined;
+    VehicleList:undefined;
+    VehicleDetail:undefined;
 };
 
 const Stack = createNativeStackNavigator<StackList>();
 
 const HomeNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="VerifyCode">
+    <Stack.Navigator initialRouteName="VehicleDetail">
         <Stack.Screen
-            name="VerifyCode"
-            component={VerifyCode}
+            name="VehicleDetail"
+            component={VehicleDetail}
             options={{
                 headerShown: false,
             }}

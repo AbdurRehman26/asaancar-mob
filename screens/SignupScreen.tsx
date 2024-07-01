@@ -15,11 +15,11 @@ const SignupScreen = ()=> {
             <Text style={tailwind`font-bold text-xl pb-12 pt-10`}>
                 Set up your account
             </Text>
-            <Text style={tailwind`font-normal text-lg pb-2 pt-4`}>
-                Enter your phone number
-            </Text>
 
             <View>
+                <Text style={tailwind`font-normal text-lg pb-2 pt-4`}>
+                    Enter your phone number
+                </Text>
                 <PhoneInput
                     containerStyle={tailwind`rounded-lg w-max`}
                     textContainerStyle={tailwind`rounded-r-lg`}
