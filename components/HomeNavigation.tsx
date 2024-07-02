@@ -10,6 +10,7 @@ import AllowLocation from "../screens/AllowLocation";
 import ManualLocation from "../screens/ManualLocation";
 import VehicleList from "../screens/VehicleList";
 import VehicleDetail from "../screens/VehicleDetailScreen";
+import BookingPreviewScreen from "../screens/BookingPreviewScreen";
 
 export type StackList = {
     HomeScreen: undefined;
@@ -22,16 +23,17 @@ export type StackList = {
     ManualLocation:undefined;
     VehicleList:undefined;
     VehicleDetail:undefined;
+    BookingPreviewScreen:undefined;
 };
 
 const Stack = createNativeStackNavigator<StackList>();
 
 const HomeNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="VehicleDetail">
+    <Stack.Navigator initialRouteName="BookingPreviewScreen">
         <Stack.Screen
-            name="VehicleDetail"
-            component={VehicleDetail}
+            name="BookingPreviewScreen"
+            component={BookingPreviewScreen}
             options={{
                 headerShown: false,
             }}

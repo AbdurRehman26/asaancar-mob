@@ -1,4 +1,4 @@
-import {Text, View, TouchableOpacity, StyleSheet} from "react-native";
+import {Text, View, TouchableOpacity, StyleSheet, ScrollView} from "react-native";
 import VehicleMediaSwiper from "../components/VehicleMediaSwiper";
 import tw from "tailwind-react-native-classnames";
 import {Avatar, Button, Icon} from "react-native-elements";
@@ -45,8 +45,9 @@ const VehicleDetailScreen = ()=> {
     const [selectedValue, setSelectedValue] = useState(null);
 
     return (
-        <View>
-            <View style={tw`h-80`}>
+        <View style={{ flex: 1, justifyContent: 'space-between'}}>
+            <ScrollView>
+            <View style={tw`h-60`}>
                 <VehicleMediaSwiper/>
             </View>
             <View style={tw`flex-row justify-between p-4`}>
@@ -96,6 +97,17 @@ const VehicleDetailScreen = ()=> {
                         selected={selectedValue === 'option2'}
                         onSelect={() => setSelectedValue('option2')}
                     />
+                </View>
+            </View>
+            </ScrollView>
+
+            <View style={tw`rounded-t-3xl p-2 px-8 bg-gray-200`}>
+                <View style={tw`flex-row justify-between`}>
+                    <View>
+                        <Text>Price</Text>
+                        <Text>500</Text>
+                    </View>
+                    <Button title={'Book Now'}></Button>
                 </View>
             </View>
         </View>
