@@ -30,10 +30,10 @@ const Stack = createNativeStackNavigator<StackList>();
 
 const HomeNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="BookingPreviewScreen">
+    <Stack.Navigator initialRouteName="SignupScreen">
         <Stack.Screen
-            name="BookingPreviewScreen"
-            component={BookingPreviewScreen}
+            name="VerifyCodeScreen"
+            component={VerifyCodeScreen}
             options={{
                 headerShown: false,
             }}

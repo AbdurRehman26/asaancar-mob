@@ -1,20 +1,28 @@
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Text, TouchableOpacity, View} from "react-native";
-import React, {useRef, useState} from "react";
+import {Text, View} from "react-native";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import PhoneInput from "react-native-phone-number-input";
 import {Link} from "@react-navigation/native";
 import tailwind from "tailwind-react-native-classnames";
+import Heading from "../components/Heading";
+import Button from "../components/Button";
 
-const SignupScreen = ()=> {
+const SignupScreen = ({ navigation })=> {
     const phoneInput = useRef<PhoneInput>(null);
     const [value, setValue] = useState("");
-    const [formattedValue, setFormattedValue] = useState("");
+    const [isDisabled, setIsDisabled] = useState(false);
+
+    const submit = useCallback(() => {
+        navigation.navigate('VerifyCodeScreen')
+    }, []);
+
+    useEffect(() => {
+        setIsDisabled(! (value.length === 10))
+    }, [value]);
 
     return (
         <SafeAreaView style={tailwind`p-5`}>
-            <Text style={tailwind`font-bold text-xl pb-12 pt-10`}>
-                Set up your account
-            </Text>
+            <Heading title={'Set up your account'} twClass={'p-4'} />
 
             <View>
                 <Text style={tailwind`font-normal text-lg pb-2 pt-4`}>
@@ -31,20 +39,14 @@ const SignupScreen = ()=> {
                     onChangeText={(text) => {
                         setValue(text);
                     }}
-                    onChangeFormattedText={(text) => {
-                        setFormattedValue(text);
-                    }}
                     countryPickerProps={{
                         countryCodes: ['PK'],
                     }}
                 />
             </View>
 
-            <View
-                style={tailwind`rounded bg-purple-500 p-4 mt-4`}>
-                <TouchableOpacity>
-                    <Text style={tailwind`text-center text-white font-bold`}>Continue</Text>
-                </TouchableOpacity>
+            <View>
+                <Button isDisabled={isDisabled} title={'Continue'} onPress={submit}/>
             </View>
 
             <View style={tailwind`mt-5`}>
