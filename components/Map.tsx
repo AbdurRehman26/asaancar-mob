@@ -38,6 +38,7 @@ const Map = () => {
     getTravelTime();
   }, [origin, destination, GOOGLE_MAPS_API_KEY]);
 
+  console.log(origin, 1111)
   return (
     <MapView
       ref={mapRef}

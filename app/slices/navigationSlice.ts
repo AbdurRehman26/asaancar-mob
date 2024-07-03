@@ -1,7 +1,7 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 import { Point } from "react-native-google-places-autocomplete";
-import { RootState } from "../../app/store";
+import { RootState } from "../store";
 
 type DistanceMatrix = {
   distance: {

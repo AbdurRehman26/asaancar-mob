@@ -9,7 +9,7 @@ interface HeadingProps extends TextProps {
 
 const Heading = ({ title, twClass, ...props }: HeadingProps) => {
 
-    const headingClasses =  cn(twClass, 'font-bold text-xl')
+    const headingClasses =  cn('font-bold text-xl', twClass)
 
     return (
         <Text {...props} style={tw`${headingClasses}`}>{title}</Text>

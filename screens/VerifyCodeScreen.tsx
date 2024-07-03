@@ -1,6 +1,6 @@
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Text, TouchableOpacity, View, StyleSheet} from "react-native";
-import React, {useState} from "react";
+import {Text, View, StyleSheet} from "react-native";
+import React, {useCallback, useEffect, useState} from "react";
 import tailwind from "tailwind-react-native-classnames";
 import {
     CodeField,
@@ -8,6 +8,8 @@ import {
     useBlurOnFulfill,
     useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
+import Button from "../components/Button";
+import Heading from "../components/Heading";
 
 const styles = StyleSheet.create({
     root: {flex: 1, padding: 20},
@@ -18,7 +20,8 @@ const styles = StyleSheet.create({
         height: 40,
         lineHeight: 38,
         fontSize: 24,
-        borderWidth: 2,
+        borderRadius: 5,
+        borderWidth: 1,
         borderColor: '#00000030',
         textAlign: 'center',
     },
@@ -27,9 +30,10 @@ const styles = StyleSheet.create({
     },
 });
 
-const CELL_COUNT = 4;
+const CELL_COUNT = 6;
 
-const VerifyCodeScreen = ()=> {
+const VerifyCodeScreen = ({ navigation })=> {
+    const [counter, setCounter] = useState(60)
 
     const [value, setValue] = useState('');
     const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
@@ -38,16 +42,30 @@ const VerifyCodeScreen = ()=> {
         setValue,
     });
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCounter(counter - 1)
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [counter]);
+
+    const resendText = counter > 0 ? `Resend after (${counter}) seconds` : 'Resend';
+
+    const submit = useCallback(() => {
+            navigation.navigate('AllowLocation')
+    }, [value]);
+
+    const resend = useCallback(() => {
+        navigation.navigate('AllowLocation')
+    }, []);
+
     return (
         <SafeAreaView style={tailwind`p-5 pt-20`}>
-            <Text style={tailwind`text-center font-bold text-xl pb-10 pt-10`}>
-                Verify Code
-            </Text>
+            <Heading title={'Verify Code'} twClass={'text-center font-bold text-xl pb-10 pt-10'}/>
             <View>
-                <Text style={tailwind`text-black text-center`}>By signing up, you agree to GoGoRide's</Text>
-                <Text style={tailwind`text-black text-center`}>Terms of Service and Privacy Policy</Text>
+                <Heading title={'By signing up, you agree to GoGoRide\'s'} twClass={'text-center font-normal text-base'}/>
+                <Heading title={'Terms of Service and Privacy Policy'} twClass={'text-center font-normal text-base'}/>
             </View>
-
 
             <View>
 
@@ -74,12 +92,9 @@ const VerifyCodeScreen = ()=> {
 
             </View>
 
-            <View
-                style={tailwind`rounded bg-purple-500 p-4 mt-4`}>
-                <TouchableOpacity>
-                    <Text style={tailwind`text-center text-white font-bold`}>Verify</Text>
-                </TouchableOpacity>
-            </View>
+            <Button isDisabled={value.length !== 6} title={'Verify'}  onPress={submit}/>
+
+            <Button isDisabled={counter > 0} title={resendText} onPress={resend}/>
 
         </SafeAreaView>
     );

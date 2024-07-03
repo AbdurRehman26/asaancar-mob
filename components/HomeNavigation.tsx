@@ -30,7 +30,14 @@ const Stack = createNativeStackNavigator<StackList>();
 
 const HomeNavigation = () => {
   return (
-    <Stack.Navigator initialRouteName="SignupScreen">
+    <Stack.Navigator initialRouteName="ManualLocation">
+        <Stack.Screen
+            name="SignupScreen"
+            component={SignupScreen}
+            options={{
+                headerShown: false,
+            }}
+        />
         <Stack.Screen
             name="VerifyCodeScreen"
             component={VerifyCodeScreen}
@@ -39,8 +46,15 @@ const HomeNavigation = () => {
             }}
         />
         <Stack.Screen
-            name="SignupScreen"
-            component={SignupScreen}
+            name="AllowLocation"
+            component={AllowLocation}
+            options={{
+                headerShown: false,
+            }}
+        />
+        <Stack.Screen
+            name="ManualLocation"
+            component={ManualLocation}
             options={{
                 headerShown: false,
             }}

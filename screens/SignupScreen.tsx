@@ -54,8 +54,6 @@ const SignupScreen = ({ navigation })=> {
                 <Text style={tailwind`text-black text-center`}>Terms of Service and Privacy Policy</Text>
             </View>
 
-            <Text style={tailwind`mt-12 text-center text-lg`}>Already have an account? <Link to={''} children={<Text style={tailwind`text-blue-500`} >Login</Text>}/></Text>
-
         </SafeAreaView>
     );
 };
