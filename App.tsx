@@ -1,9 +1,9 @@
 import "intl";
 import "intl/locale-data/jsonp/en";
+import 'react-native-gesture-handler'
 
 import { KeyboardAvoidingView, Platform } from "react-native";
-
-import HomeNavigation from "./components/HomeNavigation";
+import HomeNavigation from "./components/navigators/HomeNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import React from "react";

@@ -8,16 +8,17 @@ import * as Location from 'expo-location';
 import Button from "../components/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {
-    setLocation,
-    selectLocation
-} from "../app/slices/locationSlice";
+    selectOrigin,
+    setOrigin,
+} from "../app/slices/navigationSlice"
+
 const AllowLocation = ({ navigation })=> {
 
-    const locationSelector = useSelector(selectLocation);
     const dispatch = useDispatch();
+    const origin = useSelector(selectOrigin);
 
     useEffect(() => {
-        if(locationSelector.location.coords.latitude !== 0){
+        if(origin?.location?.lng){
             navigation.navigate('ManualLocation')
         }
     }, []);
@@ -31,7 +32,15 @@ const AllowLocation = ({ navigation })=> {
         }
 
         let location = await Location.getCurrentPositionAsync({});
-            dispatch(setLocation(location));
+
+            dispatch(setOrigin({
+                location : {
+                    lat: location.coords.latitude,
+                    lng: location.coords.longitude
+                },
+                description : 'Karachi'
+            }));
+
             navigation.navigate('ManualLocation')
     }, []);
     

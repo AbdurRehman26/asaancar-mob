@@ -1,15 +1,15 @@
-import MapView, { Marker } from "react-native-maps";
+import MapView, {PROVIDER_GOOGLE, Marker }  from "react-native-maps";
 import React, { useEffect, useRef } from "react";
 import {
   selectDestination,
-  selectOrigin,
+  selectOrigin, setOrigin,
   setTravelTimeInfo,
 } from "../app/slices/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import MapViewDirections from "react-native-maps-directions";
-import tailwind from "tailwind-react-native-classnames";
+import {StyleSheet} from "react-native";
 
 const Map = () => {
   const dispatch = useDispatch();
@@ -38,10 +38,10 @@ const Map = () => {
     getTravelTime();
   }, [origin, destination, GOOGLE_MAPS_API_KEY]);
 
-  console.log(origin, 1111)
   return (
     <MapView
-      ref={mapRef}
+      style={{ ...StyleSheet.absoluteFillObject }}
+      provider={PROVIDER_GOOGLE}
       initialRegion={{
         latitude: origin?.location?.lat || 37.78825,
         longitude: origin?.location?.lng || -122.4324,
@@ -49,10 +49,10 @@ const Map = () => {
         longitudeDelta: 0.005,
       }}
       mapType="mutedStandard"
-      style={tailwind`flex-1`}
     >
       {origin && destination && (
         <MapViewDirections
+
           origin={origin.description}
           destination={destination.description}
           apikey={GOOGLE_MAPS_API_KEY}
@@ -64,6 +64,14 @@ const Map = () => {
 
       {origin?.location && (
         <Marker
+          draggable
+          onDragEnd={(markerDragEvent) => dispatch(setOrigin({
+            location: {
+              lat: markerDragEvent.nativeEvent.coordinate.latitude,
+              lng: markerDragEvent.nativeEvent.coordinate.longitude
+            },
+            description: 'Karachi'
+          }))}
           coordinate={{
             latitude: origin.location.lat,
             longitude: origin.location.lng,
