@@ -3,14 +3,14 @@ import {Text, TouchableOpacity, View} from "react-native";
 import React, {useCallback, useEffect} from "react";
 import tailwind from "tailwind-react-native-classnames";
 import { Icon } from 'react-native-elements'
-import Colors from "../constants/Colors";
+import Colors from "../../constants/Colors";
 import * as Location from 'expo-location';
-import Button from "../components/Button";
+import Button from "../../components/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {
     selectOrigin,
     setOrigin,
-} from "../app/slices/navigationSlice"
+} from "../../app/slices/navigationSlice"
 
 const AllowLocation = ({ navigation })=> {
 
@@ -19,7 +19,7 @@ const AllowLocation = ({ navigation })=> {
 
     useEffect(() => {
         if(origin?.location?.lng){
-            navigation.navigate('ManualLocation')
+            navigation.navigate('UserTypeSelectionScreen')
         }
     }, []);
 
@@ -41,7 +41,7 @@ const AllowLocation = ({ navigation })=> {
                 description : 'Karachi'
             }));
 
-            navigation.navigate('ManualLocation')
+            navigation.navigate('UserTypeSelectionScreen')
     }, []);
     
     return (

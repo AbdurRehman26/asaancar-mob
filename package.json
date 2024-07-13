@@ -25,6 +25,7 @@
     "react-native-confirmation-code-field": "^7.4.0",
     "react-native-dotenv": "^3.2.0",
     "react-native-drawer": "^2.5.1",
+    "react-native-dropdown-picker": "^5.4.6",
     "react-native-elements": "^3.4.2",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-google-places-autocomplete": "^2.4.1",

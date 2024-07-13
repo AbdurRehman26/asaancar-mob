@@ -2,11 +2,12 @@ import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "re
 import tw from "tailwind-react-native-classnames";
 import React, {useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
-import Button from "../components/Button";
-import VehicleThumbnail from "../components/VehicleThumbnail";
+import Button from "../../components/Button";
+import VehicleThumbnail from "../../components/VehicleThumbnail";
 import {useNavigation} from "@react-navigation/native";
-import {HomeScreenProp} from "../components/NavOptions";
+import {HomeScreenProp} from "../../components/NavOptions";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Heading from "../../components/Heading";
 
 const styles = StyleSheet.create({
     container: {
@@ -75,13 +76,13 @@ const SECTIONS = [
     },
 ];
 
-const Vehicles  = () => {
+const VehiclesList  = () => {
     const navigation = useNavigation<HomeScreenProp>();
 
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
             <ScrollView>
-                <Text style={tw`font-semibold text-2xl text-center`}>Your Vehicles</Text>
+                <Heading title={'Your Vehicles'} twClass={`text-center m-5`} />
 
                 <View>
                     <FlatList
@@ -102,4 +103,4 @@ const Vehicles  = () => {
     )
 }
 
-export default Vehicles;
+export default VehiclesList;

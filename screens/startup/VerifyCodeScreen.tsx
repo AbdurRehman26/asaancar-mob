@@ -8,8 +8,8 @@ import {
     useBlurOnFulfill,
     useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import Button from "../components/Button";
-import Heading from "../components/Heading";
+import Button from "../../components/Button";
+import Heading from "../../components/Heading";
 
 const styles = StyleSheet.create({
     root: {flex: 1, padding: 20},

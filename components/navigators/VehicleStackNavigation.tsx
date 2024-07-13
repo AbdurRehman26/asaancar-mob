@@ -1,20 +1,20 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import Vehicles from "../../screens/Vehicles";
+import VehiclesList from "../../screens/driver/VehiclesList";
 import AddVehicle from "../../screens/AddVehicle";
 
 const Stack = createNativeStackNavigator<StackList>();
 
 export type StackList = {
-    Vehicles: undefined;
+    VehiclesList: undefined;
     AddVehicle: undefined;
 };
 
-const VehicleNavigator = () => {
+const VehicleStackNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName="Vehicles">
+        <Stack.Navigator initialRouteName="AddVehicle">
             <Stack.Screen
-                name="Vehicles"
-                component={Vehicles}
+                name="VehiclesList"
+                component={VehiclesList}
                 options={{
                     headerShown: false,
                 }}
@@ -30,4 +30,4 @@ const VehicleNavigator = () => {
     )
 }
 
-export default VehicleNavigator;
+export default VehicleStackNavigation;

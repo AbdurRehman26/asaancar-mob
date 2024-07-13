@@ -1,137 +1,152 @@
-import {FlatList, ScrollView, Text, TouchableOpacity, View} from "react-native";
+import {ScrollView, View} from "react-native";
 import {SafeAreaView} from "react-native-safe-area-context";
 import Heading from "../components/Heading";
 import tw from "tailwind-react-native-classnames";
-import React, {useCallback, useState} from "react";
+import React, {useState} from "react";
 import Button from "../components/Button";
-import {useNavigation} from "@react-navigation/native";
-import {HomeScreenProp} from "../components/NavOptions";
-import {Icon} from "react-native-elements";
+import DropDownPicker from 'react-native-dropdown-picker';
 
 const MODELS = {
-    title: 'Models',
+    label: 'Models',
     data : [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        value: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        label: 'First Item',
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        value: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        label: 'Second Item',
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
+        value: '58694a0f-3da1-471f-bd96-145571e29d72',
+        label: 'Third Item',
     },
 ]};
 
 const MAKE = {
-    title: "Make",
+    label: "Make",
     data: [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        value: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        label: 'First Item',
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        value: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        label: 'Second Item',
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
+        value: '58694a0f-3da1-471f-bd96-145571e29d72',
+        label: 'Third Item',
     },
 ]};
 
 const COLORS = {
-    title: 'Colors',
+    label: 'Colors',
     data: [
     {
-        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-        title: 'First Item',
+        value: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        label: 'First Item',
     },
     {
-        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-        title: 'Second Item',
+        value: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        label: 'Second Item',
     },
     {
-        id: '58694a0f-3da1-471f-bd96-145571e29d72',
-        title: 'Third Item',
+        value: '58694a0f-3da1-471f-bd96-145571e29d72',
+        label: 'Third Item',
     },
 ]};
 
 const AddVehicle = () => {
-    const navigation = useNavigation<HomeScreenProp>();
 
-    const [make, setMake] = useState('')
-    const [model, setModel] = useState('')
-    const [color, setColor] = useState('')
-    const [flatListData, setFlatListData] = useState(MAKE);
-
-    const selectValue = useCallback((selectedValue: string) => {
-        if(flatListData.title === MAKE.title){
-            setMake(selectedValue)
-            setFlatListData(MODELS)
-        }
-
-        if(flatListData.title === MODELS.title){
-            setModel(selectedValue)
-            setFlatListData(COLORS)
-        }
-
-        if(flatListData.title === COLORS.title){
-            setColor(selectedValue)
-            setFlatListData({ title: 'Save Vehicle', data: []})
-        }
-
-    }, [model, make, color]);
-
-    const clearValue = useCallback(() => {
-        if(flatListData.title === MAKE.title){
-            navigation.navigate('Vehicles')
-        }
-
-        if(flatListData.title === MODELS.title){
-            setMake('')
-            setFlatListData(MAKE)
-        }
-
-        if(flatListData.title === COLORS.title){
-            setModel('')
-            setFlatListData(MODELS)
-        }
-
-        if(! flatListData.data.length){
-            setColor('')
-            setFlatListData(COLORS)
-        }
-
-    }, [flatListData, navigation]);
+        const [make, setMake] = useState('')
+        const [model, setModel] = useState('')
+        const [color, setColor] = useState('')
+        const [open, setOpen] = useState({
+            make: false,
+            model: false,
+            color: false
+        });
 
         return (
             <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
-                <TouchableOpacity
-                    onPress={() => clearValue()}
-                    style={tw`bg-gray-50 absolute top-8 left-4 z-50 p-3 rounded-full shadow-lg`}
-                >
-                    <Icon tvParallaxProperties={false} type={'font-awesome'} name="arrow-left" />
-                </TouchableOpacity>
-
                 <ScrollView>
+                    <View style={tw`p-4`}>
                     <View>
-                        <Heading twClass={'text-center'} title={flatListData.title}/>
-                    </View>
-                    <View>
-                        <Text>{make}</Text>
-                        <Text>{model}</Text>
-                        <Text>{color}</Text>
+                        <Heading twClass={'text-center my-4'} title={'Add Vehicle'}/>
                     </View>
 
-                    <FlatList
-                        style={tw`mt-5`}
-                        data={flatListData.data}
-                        renderItem={({item}) => <TouchableOpacity onPress={() => selectValue(item.title)} style={tw`p-4 mt-auto border-t border-gray-400`}><Heading title={item.title}/></TouchableOpacity>}
-                        keyExtractor={item => item.id}
-                    />
+                    <View
+                        style={{
+                            zIndex : open.make ? 10 : 1
+                        }}>
+                    <Heading title={MAKE.label}/>
+                        <DropDownPicker
+                            zIndex={open.make ? 10 : 1}
+                            onClose={() => setOpen({
+                                make: false,
+                                model: open.model,
+                                color: open.color
+                            })}
+                            open={open.make}
+                            value={make}
+                            items={MAKE.data}
+                            setOpen={() => setOpen({
+                                make: true,
+                                model: open.model,
+                                color: open.color
+                            })}
+                            setValue={setMake}
+                        />
+                    </View>
+
+                    <View
+                        style={{
+                            zIndex : open.model ? 10 : 1
+                        }}>
+                        <Heading title={MODELS.label}/>
+                        <DropDownPicker
+                            onClose={() => setOpen({
+                                make: open.make,
+                                model: false,
+                                color: open.color
+                            })}
+                            open={open.model}
+                            value={model}
+                            items={MODELS.data}
+                            setOpen={() => setOpen({
+                                make: open.make,
+                                model: true,
+                                color: open.color
+                            })}
+                            setValue={setModel}
+                        />
+                    </View>
+
+                    <View
+                        style={{
+                            zIndex : open.color ? 10 : 1
+                        }}>
+                        <Heading title={COLORS.label}/>
+                        <DropDownPicker
+                            onClose={() => setOpen({
+                                make: open.make,
+                                model: open.model,
+                                color: false
+                            })}
+                            open={open.color}
+                            value={color}
+                            items={COLORS.data}
+                            setOpen={() => setOpen({
+                                make: open.make,
+                                model: open.model,
+                                color: true
+                            })}
+                            setValue={setColor}
+                        />
+                    </View>
+                    </View>
+
                 </ScrollView>
 
                 <View style={tw`rounded-t-3xl p-2 px-8 bg-gray-200`}>
