@@ -5,9 +5,11 @@ import tw from "tailwind-react-native-classnames";
 import React, {useState} from "react";
 import Button from "../components/Button";
 import DropDownPicker from 'react-native-dropdown-picker';
+import {launchImageLibrary} from 'react-native-image-picker';
+import Colors from "../constants/Colors";
 
 const MODELS = {
-    label: 'Models',
+    label: 'Model',
     data : [
     {
         value: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -41,7 +43,7 @@ const MAKE = {
 ]};
 
 const COLORS = {
-    label: 'Colors',
+    label: 'Color',
     data: [
     {
         value: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
@@ -57,7 +59,7 @@ const COLORS = {
     },
 ]};
 
-const AddVehicle = () => {
+const AddVehicle = ({ navigation }) => {
 
         const [make, setMake] = useState('')
         const [model, setModel] = useState('')
@@ -68,7 +70,14 @@ const AddVehicle = () => {
             color: false
         });
 
-        return (
+    const openImages = async () => {
+        const result = await launchImageLibrary({
+            mediaType: "photo"
+        });
+        console.log(result);
+    };
+
+    return (
             <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
                 <ScrollView>
                     <View style={tw`p-4`}>
@@ -78,11 +87,11 @@ const AddVehicle = () => {
 
                     <View
                         style={{
+                            marginTop: 15,
                             zIndex : open.make ? 10 : 1
                         }}>
                     <Heading title={MAKE.label}/>
                         <DropDownPicker
-                            zIndex={open.make ? 10 : 1}
                             onClose={() => setOpen({
                                 make: false,
                                 model: open.model,
@@ -93,8 +102,8 @@ const AddVehicle = () => {
                             items={MAKE.data}
                             setOpen={() => setOpen({
                                 make: true,
-                                model: open.model,
-                                color: open.color
+                                model: false,
+                                color: false
                             })}
                             setValue={setMake}
                         />
@@ -102,6 +111,7 @@ const AddVehicle = () => {
 
                     <View
                         style={{
+                            marginTop: 15,
                             zIndex : open.model ? 10 : 1
                         }}>
                         <Heading title={MODELS.label}/>
@@ -115,9 +125,9 @@ const AddVehicle = () => {
                             value={model}
                             items={MODELS.data}
                             setOpen={() => setOpen({
-                                make: open.make,
+                                make: false,
                                 model: true,
-                                color: open.color
+                                color: false
                             })}
                             setValue={setModel}
                         />
@@ -125,6 +135,7 @@ const AddVehicle = () => {
 
                     <View
                         style={{
+                            marginTop: 15,
                             zIndex : open.color ? 10 : 1
                         }}>
                         <Heading title={COLORS.label}/>
@@ -138,19 +149,107 @@ const AddVehicle = () => {
                             value={color}
                             items={COLORS.data}
                             setOpen={() => setOpen({
-                                make: open.make,
-                                model: open.model,
+                                make: false,
+                                model: false,
                                 color: true
                             })}
                             setValue={setColor}
                         />
                     </View>
+
+                        <View
+                            style={{
+                                marginTop: 15,
+                                zIndex : open.make ? 10 : 1
+                            }}>
+                            <Heading title={'Charges'}/>
+
+                            <View style={tw`flex-row`}>
+                            <DropDownPicker
+                                containerProps={{
+                                    style: {
+                                        width: 150,
+                                    }
+                                }}
+                                onClose={() => setOpen({
+                                    make: false,
+                                    model: open.model,
+                                    color: open.color
+                                })}
+                                open={open.make}
+                                value={'per_hour'}
+                                items={[
+                                    {
+                                        value: 'per_hour',
+                                        label: 'Per Hour'
+                                    },
+                                    {
+                                        value: 'per_day',
+                                        label: 'Per Day'
+                                    }
+
+                                ]}
+                                setOpen={() => setOpen({
+                                    make: true,
+                                    model: false,
+                                    color: false
+                                })}
+                                setValue={setMake}
+                            />
+                            <DropDownPicker
+                                containerProps={{
+                                    style: {
+                                        width: 150,
+                                        marginLeft: 10
+                                    }
+                                }}
+                                onClose={() => setOpen({
+                                    make: false,
+                                    model: open.model,
+                                    color: open.color
+                                })}
+                                open={open.make}
+                                value={'100'}
+                                items={[
+                                    {
+                                        value: '500',
+                                        label: '500'
+                                    },
+                                    {
+                                        value: '100',
+                                        label: '100'
+                                    }
+
+                                ]}
+                                setOpen={() => setOpen({
+                                    make: true,
+                                    model: false,
+                                    color: false
+                                })}
+                                setValue={setMake}
+                            />
+                            </View>
+
+                            <View>
+                                <Button title={'Add Images'} onPress={() => openImages()}/>
+                            </View>
+
+                            <View>
+                                <Button tWStyles={`bg-${Colors.success}`} title={'Add License'} onPress={() => openImages()}/>
+                            </View>
+
+                            <View>
+                                <Button tWStyles={`bg-${Colors.primaryDisabled}`} title={'Add Car Document'} onPress={() => openImages()}/>
+                            </View>
+
+                        </View>
+
                     </View>
 
                 </ScrollView>
 
                 <View style={tw`rounded-t-3xl p-2 px-8 bg-gray-200`}>
-                    <Button title={'Save'} onPress={() => console.log(111)}/>
+                    <Button title={'Save'} onPress={() => navigation.navigate('VehiclesList')}/>
                 </View>
             </SafeAreaView>
         )

@@ -11,7 +11,7 @@ export type StackList = {
 
 const VehicleStackNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName="AddVehicle">
+        <Stack.Navigator initialRouteName="VehiclesList">
             <Stack.Screen
                 name="VehiclesList"
                 component={VehiclesList}

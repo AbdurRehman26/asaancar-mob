@@ -2,12 +2,12 @@ import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "re
 import tw from "tailwind-react-native-classnames";
 import React, {useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
-import Button from "../../components/Button";
-import VehicleThumbnail from "../../components/VehicleThumbnail";
+import Button from "../../../components/Button";
+import VehicleThumbnail from "../../../components/VehicleThumbnail";
 import {useNavigation} from "@react-navigation/native";
-import {HomeScreenProp} from "../../components/NavOptions";
+import {HomeScreenProp} from "../../../components/NavOptions";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Heading from "../../components/Heading";
+import Heading from "../../../components/Heading";
 
 const styles = StyleSheet.create({
     container: {
@@ -76,14 +76,13 @@ const SECTIONS = [
     },
 ];
 
-const VehiclesList  = () => {
+const RideList  = () => {
     const navigation = useNavigation<HomeScreenProp>();
 
     return (
         <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
             <ScrollView>
-                <Heading title={'Your Vehicles'} twClass={`text-center mt-5`} />
-
+                <Heading title={'Your Rides'} twClass={`text-center mt-5`} />
                 <View>
                     <FlatList
                         data={SECTIONS.map((section) => section)}
@@ -91,16 +90,9 @@ const VehiclesList  = () => {
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
-
             </ScrollView>
-
-            <View style={tw`rounded-t-3xl p-2 px-8 bg-gray-200`}>
-                <View style={tw``}>
-                    <Button title={'Add Vehicle'} onPress={() => navigation.navigate('AddVehicle')}/>
-                </View>
-            </View>
         </SafeAreaView>
     )
 }
 
-export default VehiclesList;
+export default RideList;
