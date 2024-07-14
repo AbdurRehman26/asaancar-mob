@@ -76,7 +76,7 @@ const RideList  = () => {
     const navigation = useNavigation<HomeScreenProp>();
 
     return (
-        <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
+        <View style={{ flex: 1, justifyContent: 'space-between'}}>
             <ScrollView>
                 <Heading title={'Your Rides'} twClass={`text-center mt-5`} />
                 <View>
@@ -87,7 +87,7 @@ const RideList  = () => {
                     />
                 </View>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     )
 }
 
