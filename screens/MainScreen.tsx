@@ -4,33 +4,62 @@ import VehicleStackNavigation from "../components/navigators/VehicleStackNavigat
 import CustomDrawerNavigation from "../components/navigators/CustomDrawerNavigation";
 import RideMain from "./driver/rides/RideMain";
 import RideDetail from "./driver/rides/RideDetail";
+import {Icon} from "react-native-elements";
+import ProfileSettingStackNavigation from "../components/navigators/ProfileSettingStackNavigation";
 
 const Drawer = createDrawerNavigator();
 
 const MainScreen = () => {
 
     return (
-        <Drawer.Navigator initialRouteName={'RideDetail'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
             <Drawer.Screen
                 name="Profile Settings"
-                component={ProfileSettingScreen}
-                options={{ headerShown: true }}
+                component={ProfileSettingStackNavigation}
+                options={{ headerShown: true, drawerIcon: () => (
+                    <Icon tvParallaxProperties={false} type='ionicon' name={'person-outline'} />
+                    ) }}
             />
             <Drawer.Screen
-                name="Vehicles"
+                name="My Vehicles"
                 component={VehicleStackNavigation}
-                options={{ headerShown: true }}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'car-outline'} />
+                    )
+            }}
             />
             <Drawer.Screen
-                name="RideMain"
+                name="Trips"
                 component={RideMain}
-                options={{ headerShown: true }}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'map-outline'} />
+                    )
+            }}
             />
-            <Drawer.Screen
-                name="RideDetail"
-                component={RideDetail}
-                options={{ headerShown: false }}
-            ></Drawer.Screen>
+                <Drawer.Screen
+                    name="Payment"
+                    component={RideMain}
+                    options={{
+                            headerShown: true,
+                            drawerIcon: () => (
+                                <Icon tvParallaxProperties={false} type='ionicon' name={'card-outline'} />
+                            )
+                    }}
+                />
+                <Drawer.Screen
+                    name="Wallet"
+                    component={RideMain}
+                    options={{
+                            headerShown: true,
+                            drawerIcon: () => (
+                                <Icon tvParallaxProperties={false} type='ionicon' name={'wallet-outline'} />
+                            )
+                    }}
+                />
         </Drawer.Navigator>
     )
 }

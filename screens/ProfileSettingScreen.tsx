@@ -1,22 +1,25 @@
-import {SafeAreaView} from "react-native-safe-area-context";
-import {Text, TouchableOpacity, View, StyleSheet, TextInput, ScrollView} from "react-native";
+import {View, ScrollView, Text} from "react-native";
 import React, {useState} from "react";
 import tailwind from "tailwind-react-native-classnames";
-import {Avatar} from "react-native-elements";
+import {Avatar, Icon} from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
 import Button from "../components/Button";
 import Colors from "../constants/Colors";
 import Heading from "../components/Heading";
+import Panel from "../components/Panel";
+import {Modal} from "../components/Modal";
 
-const ProfileSettingScreen = ()=> {
+const ProfileSettingScreen = ({ navigation })=> {
 
-    const [value, setValue] = useState('');
+    const [openModal, setOpenModal] = useState(false);
 
     return (
-        <SafeAreaView style={tailwind`p-5 pt-20`}>
-            <Heading title={'Profile Settings'} twClass={`text-center`}/>
+        <View>
             <ScrollView>
-            <View style={tailwind`items-center mt-5`}>
+            <View style={tw`flex-row h-24 p-2 px-4 mt-3 bg-white shadow`}>
+
+                <Modal isVisible={openModal} onRequestClose={() => setOpenModal(false)}/>
+
                 <Avatar
                     overlayContainerStyle={tailwind`bg-red-600`}
                     size="large"
@@ -25,20 +28,35 @@ const ProfileSettingScreen = ()=> {
                     onPress={() => console.log("Works!")}
                     activeOpacity={0.7}
                 />
+                <View style={tw`ml-4 justify-center`}>
+                    <Heading twClass={`font-bold text-lg`} title={'Syed Abdur Rehman Kazmi'}/>
+                    <Heading twClass={`font-normal text-lg`} title={'+92-320-2095051'}/>
+                </View>
             </View>
 
-            <View>
-                <Heading twClass={`font-normal text-lg`} title={'Name'}/>
-                <TextInput style={tw`rounded border-2 border-gray-200 bg-white p-4`}/>
+                <View style={tw`h-20 flex-row items-center p-2 px-4 mt-3 bg-white shadow`}>
+                    <Icon size={35} tvParallaxProperties={false} type='ionicon' color={Colors.primaryCode} name={'notifications'} />
+                    <View style={tw`ml-4 justify-center`}>
+                        <Heading twClass={`font-bold text-lg`} title={'Notifications'}/>
+                    </View>
+                </View>
 
+                <View>
+
+                <Heading twClass={`font-normal text-lg text-${Colors.gray} p-3`} title={'Account'}/>
+                <Panel icon={'person'} title={'Profile Settings'} onPress={() => navigation.navigate('AccountInfo')} />
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'information-circle'} title={'About Us'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'newspaper'} title={'Privacy Policy'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'clipboard'} title={'Terms & Conditions'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'logo-wechat'} title={'FAQs'}/>
+                <Panel onPress={() => navigation.navigate('ContactUs')} panelClass={`mt-3`} icon={'headset'} title={'Contact Us'}/>
             </View>
 
 
-            <Button title={'Save'} onPress={() => console.log('')}/>
-            <Button title={'Logout'} tWStyles={`bg-${Colors.primaryDisabled}`} onPress={() => console.log('')}/>
-            <Button title={'Delete Account'} tWStyles={`bg-${Colors.danger}`} onPress={() => console.log('')}/>
+            <Button title={'Logout'} tWStyles={`mx-4 bg-${Colors.primaryDisabled}`} onPress={() => console.log('')}/>
+            <Button title={'Delete Account'} tWStyles={`mx-4 my-4 bg-${Colors.danger}`} onPress={() => console.log('')}/>
             </ScrollView>
-        </SafeAreaView>
+        </View>
     );
 };
 

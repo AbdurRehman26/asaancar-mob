@@ -5,10 +5,10 @@ import {
     Image,
     TouchableOpacity,
     StyleSheet,
-    Switch,
+    Switch, Linking,
 } from "react-native";
 import {
-    DrawerContentScrollView,
+    DrawerContentScrollView, DrawerItem,
     DrawerItemList,
 } from "@react-navigation/drawer";
 
@@ -18,6 +18,11 @@ import {selectUserType, setUserType} from "../../app/slices/userSlice";
 import ROLE from "../../constants/Role";
 import tw from "tailwind-react-native-classnames";
 import Heading from "../Heading";
+import Colors from "../../constants/Colors";
+import tailwind from "tailwind-react-native-classnames";
+import {Avatar, Icon} from "react-native-elements";
+import React from "react";
+import Button from "../Button";
 
 const CustomDrawerNavigation = (props: any) => {
 
@@ -28,35 +33,35 @@ const CustomDrawerNavigation = (props: any) => {
         <View style={{ flex: 1 }}>
             <DrawerContentScrollView
                 {...props}
-                contentContainerStyle={{
-                    backgroundColor: "#9288F9",
-                    marginTop: -50,
+                contentContainerStyle={
+                {
+                    backgroundColor: `${Colors.primaryCode}`,
                     zIndex: 10,
                 }}
             >
-                <ImageBackground
-                    source={{ uri: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.freepik.com%2Ffree-photos-vectors%2Fbackground&psig=AOvVaw0cUn_IH3jD-n6YayDh46gz&ust=1720949172946000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPCn17fZo4cDFQAAAAAdAAAAABAI'}}
-                    style={{ padding: 20 }}
-                >
-                    <Image
-                        alt="Not find"
-                        source={{
-                            uri: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.vecteezy.com%2Ffree-vector%2Fwoman-avatar&psig=AOvVaw1gxRQN1vEcDzdYMRfwX6eM&ust=1720949219897000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCICBvM3Zo4cDFQAAAAAdAAAAABAE'
-                        }}
-                        style={styles.userAvatar}
+                <View style={tw`flex-row mt-20 ml-2 mb-5`}>
+                    <Avatar
+                        avatarStyle={{ borderWidth: 2, borderColor: 'white'}}
+                        overlayContainerStyle={tw`bg-red-600`}
+                        size="medium"
+                        rounded
+                        title="CR"
+                        onPress={() => console.log("Works!")}
+                        activeOpacity={0.7}
                     />
-                    <Text
-                        style={{
-                            color: "#fff",
-                            fontSize: 18,
-                            marginBottom: 5,
-                        }}
-                    >
-                        Name
-                    </Text>
-                </ImageBackground>
+                    <View>
+                        <Heading title={'Name of User'} twClass={`text-white ml-4`} />
+                        <Heading title={'+92-320-2095051'} twClass={`text-white font-normal ml-4`} />
+                    </View>
+                </View>
                 <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: 10 }}>
                     <DrawerItemList {...props} />
+                    <DrawerItem
+                        label="Invite Friends"
+                        icon={() => (                        <Icon tvParallaxProperties={false} type='ionicon' name={'mail-outline'} />
+                        )}
+                        onPress={() => Linking.openURL('https://mywebsite.com/help')}
+                    />
                 </View>
             </DrawerContentScrollView>
             <View
@@ -74,7 +79,7 @@ const CustomDrawerNavigation = (props: any) => {
                         thumbColor="#f4f3f4"
                         style={{ transform: [{ scaleX: 0.9 }, { scaleY: 0.9 }] }}
                     />
-                    <Heading title={userType} twClass={`text-lg font-bold ml-2 p-4`}/>
+                    <Button tWStyles={`ml-5 mt-0 w-40`} title={userType} onPress={() => dispatch(setUserType(userType === ROLE.PASSENGER ? ROLE.DRIVER : ROLE.PASSENGER))}/>
                 </View>
             </View>
             <View style={{ padding: 20, borderTopWidth: 1, borderTopColor: "#ccc" }}>
