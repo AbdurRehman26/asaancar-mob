@@ -13,7 +13,7 @@ export type StackList = {
 
 const ProfileSettingStackNavigation = () => {
     return (
-        <Stack.Navigator initialRouteName="ContactUs">
+        <Stack.Navigator initialRouteName="ProfileSettingScreen">
             <Stack.Screen
                 name="ProfileSettingScreen"
                 component={ProfileSettingScreen}

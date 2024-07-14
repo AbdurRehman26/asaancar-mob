@@ -16,7 +16,7 @@ interface IPanelProps{
 
 const Panel = ({ icon, color, title, panelClass, onPress, children }: IPanelProps) => {
 
-    const panelClasses = cn('h-20 flex-row justify-center items-center bg-white shadow', panelClass)
+    const panelClasses = cn('h-20 flex-row items-center bg-white shadow', panelClass)
 
     return (
         <View onTouchEnd={onPress} style={tw`${panelClasses}`}>

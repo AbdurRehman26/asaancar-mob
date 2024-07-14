@@ -12,7 +12,7 @@ const Drawer = createDrawerNavigator();
 const MainScreen = () => {
 
     return (
-        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Trips'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
             <Drawer.Screen
                 name="Profile Settings"
                 component={ProfileSettingStackNavigation}

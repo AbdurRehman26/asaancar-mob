@@ -1,6 +1,6 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import VehiclesList from "../../screens/driver/VehiclesList";
-import AddVehicle from "../../screens/AddVehicle";
+import AddVehicle from "../../screens/driver/vehicle/AddVehicle";
 
 const Stack = createNativeStackNavigator<StackList>();
 

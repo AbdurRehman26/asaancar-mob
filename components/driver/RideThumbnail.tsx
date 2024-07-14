@@ -1,23 +1,18 @@
 import { Image, Text, View} from "react-native";
 import tw from "tailwind-react-native-classnames";
-import Heading from "./Heading";
-import Button from "./Button";
-import Colors from "../constants/Colors";
+import Heading from "../../components/Heading";
+import Button from "../../components/Button";
+import Colors from "../../constants/Colors";
 
 interface VehicleThumbnailProps{
     title: string;
     imageUri: string;
 }
 
-const VehicleThumbnail = ({ title, imageUri }: VehicleThumbnailProps) => {
+const RideThumbnail = ({ title, imageUri }: VehicleThumbnailProps) => {
 
     return (
         <View style={tw`px-2 py-3 flex flex-row mt-3 bg-white shadow rounded`}>
-            <Image
-                style={tw`relative h-20 w-20 mx-2 mt-2 text-white shadow-lg rounded-3xl`}
-                source={{uri : imageUri}}
-            />
-
             <View style={tw`justify-center`}>
                 <Heading title={'Vehicle Name'} twClass={`text-base`}/>
                 <Heading title={'Vehicle Color'} twClass={`text-base font-normal`}/>
@@ -34,4 +29,4 @@ const VehicleThumbnail = ({ title, imageUri }: VehicleThumbnailProps) => {
     );
 };
 
-export default VehicleThumbnail;
+export default RideThumbnail;

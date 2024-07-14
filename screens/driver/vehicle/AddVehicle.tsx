@@ -1,12 +1,11 @@
 import {ScrollView, View} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
-import Heading from "../components/Heading";
+import Heading from "../../../components/Heading";
 import tw from "tailwind-react-native-classnames";
 import React, {useState} from "react";
-import Button from "../components/Button";
+import Button from "../../../components/Button";
 import DropDownPicker from 'react-native-dropdown-picker';
 import {launchImageLibrary} from 'react-native-image-picker';
-import Colors from "../constants/Colors";
+import Colors from "../../../constants/Colors";
 
 const MODELS = {
     label: 'Model',
@@ -78,7 +77,7 @@ const AddVehicle = ({ navigation }) => {
     };
 
     return (
-            <SafeAreaView style={{ flex: 1, justifyContent: 'space-between'}}>
+            <View style={{ flex: 1, justifyContent: 'space-between'}}>
                 <ScrollView>
                     <View style={tw`p-4`}>
                     <View>
@@ -251,7 +250,7 @@ const AddVehicle = ({ navigation }) => {
                 <View style={tw`rounded-t-3xl p-2 px-8 bg-gray-200`}>
                     <Button title={'Save'} onPress={() => navigation.navigate('VehiclesList')}/>
                 </View>
-            </SafeAreaView>
+            </View>
         )
 }
 

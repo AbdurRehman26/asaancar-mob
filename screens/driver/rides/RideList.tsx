@@ -1,13 +1,9 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "react-native";
-import tw from "tailwind-react-native-classnames";
-import React, {useState} from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
-import Button from "../../../components/Button";
-import VehicleThumbnail from "../../../components/VehicleThumbnail";
 import {useNavigation} from "@react-navigation/native";
 import {HomeScreenProp} from "../../../components/NavOptions";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Heading from "../../../components/Heading";
+import RideThumbnail from "../../../components/driver/RideThumbnail";
 
 const styles = StyleSheet.create({
     container: {
@@ -86,7 +82,7 @@ const RideList  = () => {
                 <View>
                     <FlatList
                         data={SECTIONS.map((section) => section)}
-                        renderItem={({ item }) => <VehicleThumbnail imageUri={item.uri} title={item.text} />}
+                        renderItem={({ item }) => <RideThumbnail imageUri={item.uri} title={item.text} />}
                         showsHorizontalScrollIndicator={false}
                     />
                 </View>
