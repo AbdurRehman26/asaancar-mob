@@ -4,7 +4,7 @@ import { Icon } from "react-native-elements";
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import React from "react";
 import { StackList } from "./HomeNavigation";
-import { selectOrigin } from "../app/slices/navigationSlice";
+import { selectOrigin } from "@app/slices/navigationSlice";
 import tailwind from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useSelector } from "react-redux";

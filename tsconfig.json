@@ -6,6 +6,7 @@
       "@components/*": ["components/*"],
       "@screens/*": ["screens/*"],
       "@constants/*": ["constants/*"],
+      "@app/*": ["app/*"],
     }
   }
 }

@@ -4,7 +4,7 @@ import {
   selectDestination,
   selectOrigin, setOrigin,
   setTravelTimeInfo,
-} from "../app/slices/navigationSlice";
+} from "@app/slices/navigationSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 import { GOOGLE_MAPS_API_KEY } from "@env";

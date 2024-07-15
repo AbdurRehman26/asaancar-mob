@@ -8,7 +8,7 @@ import NavFavorites from "./NavFavorites";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { StackList } from "./MapScreenNavigation";
-import { setDestination } from "../app/slices/navigationSlice";
+import { setDestination } from "@app/slices/navigationSlice";
 import tailwind from "tailwind-react-native-classnames";
 import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";

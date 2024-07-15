@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     selectOrigin,
     setOrigin,
-} from "../../app/slices/navigationSlice"
+} from "@app/slices/navigationSlice"
 
 const AllowLocation = ({ navigation })=> {
 
