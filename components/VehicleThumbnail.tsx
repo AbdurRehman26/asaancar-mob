@@ -12,16 +12,18 @@ interface VehicleThumbnailProps{
 const VehicleThumbnail = ({ title, imageUri }: VehicleThumbnailProps) => {
 
     return (
-        <View style={tw`px-2 py-3 flex flex-row mt-3 bg-white shadow rounded`}>
-            <Image
-                style={tw`relative h-20 w-20 mx-2 mt-2 text-white shadow-lg rounded-3xl`}
-                source={{uri : imageUri}}
-            />
+        <View style={tw`px-5 py-3 flex flex-row justify-between mt-3 bg-white shadow rounded`}>
+            <View style={tw`flex flex-row`}>
+                <Image
+                    style={tw`relative h-20 w-20 mr-2 mt-2 text-white shadow-lg rounded-3xl`}
+                    source={{uri : imageUri}}
+                />
 
-            <View style={tw`justify-center`}>
-                <Heading title={'Vehicle Name'} twClass={`text-base`}/>
-                <Heading title={'Vehicle Color'} twClass={`text-base font-normal`}/>
-                <Heading title={'Price/hr'} twClass={`text-base font-normal`}/>
+                <View style={tw`justify-center`}>
+                    <Heading title={'Vehicle Name'} twClass={`text-base`}/>
+                    <Heading title={'Vehicle Color'} twClass={`text-base font-normal`}/>
+                    <Heading title={'Price/hr'} twClass={`text-base font-normal`}/>
+                </View>
             </View>
 
             <View style={tw`justify-center ml-2`}>

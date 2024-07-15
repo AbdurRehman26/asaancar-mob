@@ -1,18 +1,20 @@
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import ProfileSettingScreen from "./ProfileSettingScreen";
 import VehicleStackNavigation from "../components/navigators/VehicleStackNavigation";
 import CustomDrawerNavigation from "../components/navigators/CustomDrawerNavigation";
-import RideMain from "./driver/rides/RideMain";
-import RideDetail from "./driver/rides/RideDetail";
 import {Icon} from "react-native-elements";
 import ProfileSettingStackNavigation from "../components/navigators/ProfileSettingStackNavigation";
+import RideList from "./driver/rides/RideList";
+import PaymentMethodStackNavigation from "../components/navigators/PaymentMethodStackNavigation";
+import Panel from "../components/Panel";
+import Heading from "../components/Heading";
+import InviteFriends from "./InviteFriends";
 
 const Drawer = createDrawerNavigator();
 
 const MainScreen = () => {
 
     return (
-        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Trips'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
             <Drawer.Screen
                 name="Profile Settings"
                 component={ProfileSettingStackNavigation}
@@ -32,7 +34,7 @@ const MainScreen = () => {
             />
             <Drawer.Screen
                 name="Trips"
-                component={RideMain}
+                component={RideList}
                 options={{
                     headerShown: true,
                     drawerIcon: () => (
@@ -41,8 +43,8 @@ const MainScreen = () => {
             }}
             />
                 <Drawer.Screen
-                    name="Payment"
-                    component={RideMain}
+                    name="Payment Methods"
+                    component={PaymentMethodStackNavigation}
                     options={{
                             headerShown: true,
                             drawerIcon: () => (
@@ -51,12 +53,22 @@ const MainScreen = () => {
                     }}
                 />
                 <Drawer.Screen
-                    name="Wallet"
-                    component={RideMain}
+                    name="Wallet (Coming Soon)"
+                    component={() => (<Panel panelClass={'items-center justify-center p-20 h-full'}><Heading title={'Coming Soon'}/></Panel>)}
                     options={{
                             headerShown: true,
                             drawerIcon: () => (
                                 <Icon tvParallaxProperties={false} type='ionicon' name={'wallet-outline'} />
+                            )
+                    }}
+                />
+                <Drawer.Screen
+                    name="Invite Friends"
+                    component={InviteFriends}
+                    options={{
+                            headerShown: true,
+                            drawerIcon: () => (
+                                <Icon tvParallaxProperties={false} type='ionicon' name={'send-outline'} />
                             )
                     }}
                 />

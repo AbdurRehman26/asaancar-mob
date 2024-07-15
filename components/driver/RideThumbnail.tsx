@@ -16,7 +16,7 @@ const RideThumbnail = ({ title, imageUri }: VehicleThumbnailProps) => {
         <View style={tw`mx-3 py-3 flex flex-col mt-3 bg-white shadow rounded`}>
             <View style={tw`flex-row justify-between`}>
                 <Heading twClass={`text-lg mx-4 text-${Colors.primary}`} title={'Ride #1056'}/>
-                <Text style={tw`bg-${Colors.pending} text-white p-2 rounded`}>PENDING</Text>
+                <Text style={tw`bg-${Colors.pending} text-white p-2 rounded-l-lg`}>PENDING</Text>
             </View>
 
             <View style={tw`flex-row mx-4 mt-4 items-center`}>

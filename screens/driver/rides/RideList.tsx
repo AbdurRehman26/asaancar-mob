@@ -1,7 +1,4 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "react-native";
-import {SafeAreaView} from "react-native-safe-area-context";
-import {useNavigation} from "@react-navigation/native";
-import {HomeScreenProp} from "../../../components/NavOptions";
 import Heading from "../../../components/Heading";
 import RideThumbnail from "../../../components/driver/RideThumbnail";
 
@@ -73,7 +70,6 @@ const SECTIONS = [
 ];
 
 const RideList  = () => {
-    const navigation = useNavigation<HomeScreenProp>();
 
     return (
         <View style={{ flex: 1, justifyContent: 'space-between'}}>

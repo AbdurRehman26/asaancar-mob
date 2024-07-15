@@ -34,21 +34,17 @@ const ProfileSettingScreen = ({ navigation })=> {
                 </View>
             </View>
 
-                <View style={tw`h-20 flex-row items-center p-2 px-5 mt-3 bg-white shadow`}>
-                    <Icon size={35} tvParallaxProperties={false} type='ionicon' color={Colors.primaryCode} name={'notifications'} />
-                    <View style={tw`justify-center`}>
-                        <Heading twClass={`font-bold text-lg`} title={'Notifications'}/>
-                    </View>
-                </View>
+
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'notifications'} title={'Notifications'}/>
 
                 <View>
 
                 <Heading twClass={`font-normal text-lg text-${Colors.gray} p-3`} title={'Account'}/>
-                <Panel icon={'person'} title={'Profile Settings'} panelClass={`mt-3 px-5`} onPress={() => navigation.navigate('AccountInfo')} />
-                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3 px-5`} icon={'information-circle'} title={'About Us'}/>
-                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3 px-5`} icon={'newspaper'} title={'Privacy Policy'}/>
-                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3 px-5`} icon={'clipboard'} title={'Terms & Conditions'}/>
-                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3 px-5`} icon={'logo-wechat'} title={'FAQs'}/>
+                <Panel icon={'person'} title={'Profile Settings'} panelClass={`mt-3`} onPress={() => navigation.navigate('AccountInfo')} />
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'information-circle'} title={'About Us'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'newspaper'} title={'Privacy Policy'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'clipboard'} title={'Terms & Conditions'}/>
+                <Panel onPress={() => setOpenModal(true)} panelClass={`mt-3`} icon={'logo-wechat'} title={'FAQs'}/>
                 <Panel onPress={() => navigation.navigate('ContactUs')} panelClass={`mt-3 px-5`} icon={'headset'} title={'Contact Us'}/>
             </View>
 

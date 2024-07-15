@@ -5,6 +5,9 @@ const colors = {
     success: 'green-600',
     gray: 'gray-600',
     pending: 'yellow-500',
+    orange: 'orange-500',
+    purple: 'purple-900',
+    green: 'green-900',
 
     // Codes
     primaryCode: '#08209A',

@@ -56,12 +56,6 @@ const CustomDrawerNavigation = (props: any) => {
                 </View>
                 <View style={{ flex: 1, backgroundColor: "#fff", paddingTop: 10 }}>
                     <DrawerItemList {...props} />
-                    <DrawerItem
-                        label="Invite Friends"
-                        icon={() => (                        <Icon tvParallaxProperties={false} type='ionicon' name={'mail-outline'} />
-                        )}
-                        onPress={() => Linking.openURL('https://mywebsite.com/help')}
-                    />
                 </View>
             </DrawerContentScrollView>
             <View

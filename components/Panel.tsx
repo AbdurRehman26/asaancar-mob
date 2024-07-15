@@ -12,15 +12,17 @@ interface IPanelProps{
     panelClass?: string;
     onPress?: any;
     children?: any;
+    iconClass?: any;
 }
 
-const Panel = ({ icon, color, title, panelClass, onPress, children }: IPanelProps) => {
+const Panel = ({ icon, color, title, panelClass, iconClass, onPress, children }: IPanelProps) => {
 
-    const panelClasses = cn('h-20 flex-row items-center bg-white shadow', panelClass)
+    const panelClasses = cn('p-5 w-full flex-row items-center bg-white shadow', panelClass)
+    const iconClasses = cn('mr-4', iconClass)
 
     return (
         <View onTouchEnd={onPress} style={tw`${panelClasses}`}>
-            { icon && (<Icon size={35} tvParallaxProperties={false} type='ionicon' color={color ?? Colors.primaryCode} name={icon} />)}
+            { icon && (<Icon style={tw`${iconClasses}`} size={35} tvParallaxProperties={false} type='ionicon' color={color ?? Colors.primaryCode} name={icon} />)}
             { children }
             { title && (
                 <View style={tw`items-center justify-center`}>
