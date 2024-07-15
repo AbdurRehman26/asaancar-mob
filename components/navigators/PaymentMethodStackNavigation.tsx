@@ -1,7 +1,7 @@
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
-import PaymentMethodListScreen from "../../screens/payment-method/PaymentMethodListScreen";
-import PaymentMethodViewScreen from "../../screens/payment-method/PaymentMethodViewScreen";
-import PaymentMethodAddEditScreen from "../../screens/payment-method/PaymentMethodAddEditScreen";
+import PaymentMethodListScreen from "@screens/payment-method/PaymentMethodListScreen";
+import PaymentMethodViewScreen from "@screens/payment-method/PaymentMethodViewScreen";
+import PaymentMethodAddEditScreen from "@screens/payment-method/PaymentMethodAddEditScreen";
 
 const Stack = createNativeStackNavigator<StackList>();
 

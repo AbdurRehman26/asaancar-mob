@@ -1,10 +1,10 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "react-native";
 import tw from "tailwind-react-native-classnames";
-import Button from "../../components/fragments/Button";
-import VehicleThumbnail from "../../components/VehicleThumbnail";
+import Button from "@components/fragments/Button";
+import VehicleThumbnail from "@components/VehicleThumbnail";
 import {useNavigation} from "@react-navigation/native";
-import {HomeScreenProp} from "../../components/NavOptions";
-import Heading from "../../components/fragments/Heading";
+import {HomeScreenProp} from "@components/NavOptions";
+import Heading from "@components/fragments/Heading";
 
 const styles = StyleSheet.create({
     container: {

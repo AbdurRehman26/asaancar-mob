@@ -3,11 +3,11 @@ import React, {useState} from "react";
 import tailwind from "tailwind-react-native-classnames";
 import {Avatar} from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
-import Button from "../components/fragments/Button";
-import Colors from "../constants/Colors";
-import Heading from "../components/fragments/Heading";
-import Panel from "../components/fragments/Panel";
-import {Modal} from "../components/fragments/Modal";
+import Button from "@components/fragments/Button";
+import Colors from "@constants/Colors";
+import Heading from "@components/fragments/Heading";
+import Panel from "@components/fragments/Panel";
+import {Modal} from "@components/fragments/Modal";
 
 const ProfileSettingScreen = ({ navigation })=> {
 

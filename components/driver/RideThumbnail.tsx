@@ -1,8 +1,8 @@
 import { Image, Text, View} from "react-native";
 import tw from "tailwind-react-native-classnames";
-import Heading from "../../components/fragments/Heading";
-import Button from "../../components/fragments/Button";
-import Colors from "../../constants/Colors";
+import Heading from "@components/fragments/Heading";
+import Button from "@components/fragments/Button";
+import Colors from "@constants/Colors";
 import {Icon} from "react-native-elements";
 
 interface VehicleThumbnailProps{

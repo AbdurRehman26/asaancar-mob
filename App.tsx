@@ -3,7 +3,7 @@ import "intl/locale-data/jsonp/en";
 import 'react-native-gesture-handler'
 
 import { KeyboardAvoidingView, Platform } from "react-native";
-import StartUpStackNavigation from "./components/navigators/StartUpStackNavigation";
+import StartUpStackNavigation from "@components/navigators/StartUpStackNavigation";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
 import React from "react";

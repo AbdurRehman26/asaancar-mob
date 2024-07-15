@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import VerifyCodeScreen from "../../screens/startup/VerifyCodeScreen";
-import UserTypeSelectionScreen from "../../screens/startup/UserTypeSelectionScreen";
-import AllowLocation from "../../screens/startup/AllowLocation";
+import VerifyCodeScreen from "@screens/startup/VerifyCodeScreen";
+import UserTypeSelectionScreen from "@screens/startup/UserTypeSelectionScreen";
+import AllowLocation from "@screens/startup/AllowLocation";
 import MainScreenNavigation from "./MainScreenNavigation";
 
 export type StackList = {

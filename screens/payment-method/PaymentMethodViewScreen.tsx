@@ -1,10 +1,10 @@
-import Panel from "../../components/fragments/Panel";
+import Panel from "@components/fragments/Panel";
 import {Icon} from "react-native-elements";
 import tw from "tailwind-react-native-classnames";
-import Colors from "../../constants/Colors";
-import Heading from "../../components/fragments/Heading";
+import Colors from "@constants/Colors";
+import Heading from "@components/fragments/Heading";
 import {View} from "react-native";
-import Button from "../../components/fragments/Button";
+import Button from "@components/fragments/Button";
 
 const PaymentMethodViewScreen = () => {
     return (

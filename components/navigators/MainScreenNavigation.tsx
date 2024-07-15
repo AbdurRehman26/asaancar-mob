@@ -1,13 +1,13 @@
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import VehicleStackNavigation from "../../components/navigators/VehicleStackNavigation";
-import CustomDrawerNavigation from "../../components/navigators/CustomDrawerNavigation";
+import VehicleStackNavigation from "@components/navigators/VehicleStackNavigation";
+import CustomDrawerNavigation from "@components/navigators/CustomDrawerNavigation";
 import {Icon} from "react-native-elements";
-import ProfileSettingStackNavigation from "../../components/navigators/ProfileSettingStackNavigation";
-import RideList from "../../screens/driver/rides/RideList";
-import PaymentMethodStackNavigation from "../../components/navigators/PaymentMethodStackNavigation";
-import Panel from "../../components/fragments/Panel";
-import Heading from "../../components/fragments/Heading";
-import InviteFriendScreen from "../../screens/InviteFriendScreen";
+import ProfileSettingStackNavigation from "@components/navigators/ProfileSettingStackNavigation";
+import RideList from "@screens/driver/rides/RideList";
+import PaymentMethodStackNavigation from "@components/navigators/PaymentMethodStackNavigation";
+import Panel from "@components/fragments/Panel";
+import Heading from "@components/fragments/Heading";
+import InviteFriendScreen from "@screens/InviteFriendScreen";
 
 const Drawer = createDrawerNavigator();
 

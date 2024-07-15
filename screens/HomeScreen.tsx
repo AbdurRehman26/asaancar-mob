@@ -3,8 +3,8 @@ import { setDestination, setOrigin } from "../app/slices/navigationSlice";
 
 import { GOOGLE_MAPS_API_KEY } from "@env";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
-import NavFavorites from "../components/NavFavorites";
-import NavOptions from "../components/NavOptions";
+import NavFavorites from "@components/NavFavorites";
+import NavOptions from "@components/NavOptions";
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tailwind from "tailwind-react-native-classnames";

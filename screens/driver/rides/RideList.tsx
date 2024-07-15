@@ -1,6 +1,6 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView, FlatList} from "react-native";
-import Heading from "../../../components/fragments/Heading";
-import RideThumbnail from "../../../components/driver/RideThumbnail";
+import Heading from "@components/fragments/Heading";
+import RideThumbnail from "@components/driver/RideThumbnail";
 
 const styles = StyleSheet.create({
     container: {

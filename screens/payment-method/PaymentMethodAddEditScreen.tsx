@@ -1,10 +1,10 @@
-import Panel from "../../components/fragments/Panel";
+import Panel from "@components/fragments/Panel";
 import {ScrollView, View} from "react-native";
 import {Icon} from "react-native-elements";
-import Colors from "../../constants/Colors";
+import Colors from "@constants/Colors";
 import tw from "tailwind-react-native-classnames";
-import InputText from "../../components/fragments/InputText";
-import Button from "../../components/fragments/Button";
+import InputText from "@components/fragments/InputText";
+import Button from "@components/fragments/Button";
 
 const PaymentMethodAddEditScreen = () => {
     return (

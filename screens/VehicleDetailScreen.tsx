@@ -1,5 +1,5 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView} from "react-native";
-import VehicleMediaSwiper from "../components/VehicleMediaSwiper";
+import VehicleMediaSwiper from "@components/VehicleMediaSwiper";
 import tw from "tailwind-react-native-classnames";
 import {Avatar, Button, Icon} from "react-native-elements";
 import tailwind from "tailwind-react-native-classnames";

@@ -4,7 +4,7 @@ import React, {useState} from "react";
 import tailwind from "tailwind-react-native-classnames";
 import {Icon, SearchBar} from 'react-native-elements'
 import tw from "tailwind-react-native-classnames";
-import VehicleCard from "../components/VehicleCard";
+import VehicleCard from "@components/VehicleCard";
 
 const styles = StyleSheet.create({
     container: {

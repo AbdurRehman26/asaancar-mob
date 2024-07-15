@@ -1,12 +1,12 @@
 import {ScrollView, Text, View} from "react-native";
 import tailwind from "tailwind-react-native-classnames";
-import Map from "../../../components/Map";
+import Map from "@components/Map";
 import React from "react";
 import tw from "tailwind-react-native-classnames";
-import Button from "../../../components/Button";
-import Colors from "../../../constants/Colors";
+import Button from "@components/Button";
+import Colors from "@constants/Colors";
 import {Avatar} from "react-native-elements";
-import Heading from "../../../components/Heading";
+import Heading from "@components/Heading";
 import { Icon } from "react-native-elements";
 
 const RideDetail = () => {

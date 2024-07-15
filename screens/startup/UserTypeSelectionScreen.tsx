@@ -1,10 +1,10 @@
 import {Text, View} from "react-native";
-import Button from "../../components/fragments/Button";
+import Button from "@components/fragments/Button";
 import tw from "tailwind-react-native-classnames";
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import {setUserType} from "../../app/slices/userSlice";
-import ROLE from "../../constants/Role";
+import ROLE from "@constants/Role";
 
 const UserTypeSelectionScreen = ({ navigation }) => {
 
