@@ -1,14 +1,12 @@
 import {
     View,
     Text,
-    ImageBackground,
-    Image,
     TouchableOpacity,
     StyleSheet,
-    Switch, Linking,
+    Switch,
 } from "react-native";
 import {
-    DrawerContentScrollView, DrawerItem,
+    DrawerContentScrollView,
     DrawerItemList,
 } from "@react-navigation/drawer";
 
@@ -17,12 +15,11 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectUserType, setUserType} from "../../app/slices/userSlice";
 import ROLE from "../../constants/Role";
 import tw from "tailwind-react-native-classnames";
-import Heading from "../Heading";
+import Heading from "../fragments/Heading";
 import Colors from "../../constants/Colors";
-import tailwind from "tailwind-react-native-classnames";
-import {Avatar, Icon} from "react-native-elements";
+import {Avatar} from "react-native-elements";
 import React from "react";
-import Button from "../Button";
+import Button from "../fragments/Button";
 
 const CustomDrawerNavigation = (props: any) => {
 

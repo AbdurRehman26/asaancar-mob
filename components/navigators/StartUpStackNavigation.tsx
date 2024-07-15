@@ -2,20 +2,20 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import VerifyCodeScreen from "../../screens/startup/VerifyCodeScreen";
 import UserTypeSelectionScreen from "../../screens/startup/UserTypeSelectionScreen";
 import AllowLocation from "../../screens/startup/AllowLocation";
-import MainScreen from "../../screens/MainScreen";
+import MainScreenNavigation from "./MainScreenNavigation";
 
 export type StackList = {
     VerifyCodeScreen: undefined;
     AllowLocation:undefined;
     UserTypeSelectionScreen:undefined;
-    MainScreen:undefined;
+    MainScreenNavigation:undefined;
 };
 
 const Stack = createNativeStackNavigator<StackList>();
 
-const MainNavigation = () => {
+const StartUpStackNavigation = () => {
   return (
-      <Stack.Navigator initialRouteName="MainScreen">
+      <Stack.Navigator initialRouteName="MainScreenNavigation">
           <Stack.Screen
               name="VerifyCodeScreen"
               component={VerifyCodeScreen}
@@ -38,8 +38,8 @@ const MainNavigation = () => {
               }}
           />
           <Stack.Screen
-              name="MainScreen"
-              component={MainScreen}
+              name="MainScreenNavigation"
+              component={MainScreenNavigation}
               options={{
                   headerShown: false,
               }}
@@ -48,4 +48,4 @@ const MainNavigation = () => {
   );
 };
 
-export default MainNavigation;
+export default StartUpStackNavigation;

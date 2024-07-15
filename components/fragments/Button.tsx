@@ -1,8 +1,8 @@
 import {GestureResponderEvent, Text, TouchableOpacity} from "react-native";
 import tailwind from "tailwind-react-native-classnames";
-import Colors from "../constants/Colors";
+import Colors from "../../constants/Colors";
 import React from "react";
-import {cn} from "../utils/classesMerge";
+import {cn} from "../../utils/classesMerge";
 import tw from "tailwind-react-native-classnames";
 
 interface ButtonProps{

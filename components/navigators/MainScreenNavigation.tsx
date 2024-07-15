@@ -1,17 +1,17 @@
 import {createDrawerNavigator} from "@react-navigation/drawer";
-import VehicleStackNavigation from "../components/navigators/VehicleStackNavigation";
-import CustomDrawerNavigation from "../components/navigators/CustomDrawerNavigation";
+import VehicleStackNavigation from "../../components/navigators/VehicleStackNavigation";
+import CustomDrawerNavigation from "../../components/navigators/CustomDrawerNavigation";
 import {Icon} from "react-native-elements";
-import ProfileSettingStackNavigation from "../components/navigators/ProfileSettingStackNavigation";
-import RideList from "./driver/rides/RideList";
-import PaymentMethodStackNavigation from "../components/navigators/PaymentMethodStackNavigation";
-import Panel from "../components/Panel";
-import Heading from "../components/Heading";
-import InviteFriends from "./InviteFriends";
+import ProfileSettingStackNavigation from "../../components/navigators/ProfileSettingStackNavigation";
+import RideList from "../../screens/driver/rides/RideList";
+import PaymentMethodStackNavigation from "../../components/navigators/PaymentMethodStackNavigation";
+import Panel from "../../components/fragments/Panel";
+import Heading from "../../components/fragments/Heading";
+import InviteFriendScreen from "../../screens/InviteFriendScreen";
 
 const Drawer = createDrawerNavigator();
 
-const MainScreen = () => {
+const MainScreenNavigation = () => {
 
     return (
         <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
@@ -64,7 +64,7 @@ const MainScreen = () => {
                 />
                 <Drawer.Screen
                     name="Invite Friends"
-                    component={InviteFriends}
+                    component={InviteFriendScreen}
                     options={{
                             headerShown: true,
                             drawerIcon: () => (
@@ -76,4 +76,4 @@ const MainScreen = () => {
     )
 }
 
-export default MainScreen;
+export default MainScreenNavigation;

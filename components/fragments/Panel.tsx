@@ -1,9 +1,9 @@
 import tw from "tailwind-react-native-classnames";
 import {View} from "react-native";
 import Heading from "./Heading";
-import Colors from "../constants/Colors";
+import Colors from "../../constants/Colors";
 import {Icon} from "react-native-elements";
-import {cn} from "../utils/classesMerge";
+import {cn} from "../../utils/classesMerge";
 
 interface IPanelProps{
     icon?: string;

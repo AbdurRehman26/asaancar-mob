@@ -2,7 +2,7 @@ import React from "react";
 import {StyleSheet, View, Text, Modal as NModal, Dimensions} from "react-native";
 import tw from "tailwind-react-native-classnames";
 import Button from "./Button";
-import Heading from "./Heading";
+import Heading from "../fragments/Heading";
 
 type ModalProps = {
     isVisible: boolean;

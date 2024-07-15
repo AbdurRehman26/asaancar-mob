@@ -5,7 +5,7 @@ import tailwind from "tailwind-react-native-classnames";
 import { Icon } from 'react-native-elements'
 import Colors from "../../constants/Colors";
 import * as Location from 'expo-location';
-import Button from "../../components/Button";
+import Button from "../../components/fragments/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {
     selectOrigin,

@@ -1,12 +1,12 @@
 import {Text, View} from "react-native";
 import tailwind from "tailwind-react-native-classnames";
 import Map from "../components/Map";
-import Button from "../components/Button";
+import Button from "../components/fragments/Button";
 import {useEffect, useState} from "react";
 import * as Location from 'expo-location';
 import {selectOrigin} from "../app/slices/navigationSlice";
 import {useSelector} from "react-redux";
-import Heading from "../components/Heading";
+import Heading from "../components/fragments/Heading";
 
 const ManualLocation = ()=> {
 

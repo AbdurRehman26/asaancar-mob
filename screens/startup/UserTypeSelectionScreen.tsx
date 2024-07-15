@@ -1,5 +1,5 @@
 import {Text, View} from "react-native";
-import Button from "../../components/Button";
+import Button from "../../components/fragments/Button";
 import tw from "tailwind-react-native-classnames";
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
