@@ -1,9 +1,9 @@
 import {SafeAreaView} from "react-native-safe-area-context";
 import {Text, TouchableOpacity, View, StyleSheet, TextInput, FlatList, SectionList} from "react-native";
 import React, {useState} from "react";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import {Icon, SearchBar} from 'react-native-elements'
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import VehicleCard from "@components/VehicleCard";
 
 const styles = StyleSheet.create({

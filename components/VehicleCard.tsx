@@ -1,5 +1,5 @@
 import { Image, Text, View} from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import {Button} from "react-native-elements";
 
 interface VehicleCardProps{

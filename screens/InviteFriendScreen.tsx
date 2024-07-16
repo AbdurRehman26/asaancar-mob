@@ -1,7 +1,7 @@
 import {ScrollView, Text, View} from "react-native";
 import {Icon} from "react-native-elements";
 import Colors from "@constants/Colors";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import Heading from "@components/fragments/Heading";
 import Panel from "@components/fragments/Panel";
 import Button from "@components/fragments/Button";

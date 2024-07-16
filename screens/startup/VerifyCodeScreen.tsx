@@ -1,7 +1,7 @@
 import {SafeAreaView} from "react-native-safe-area-context";
 import {Text, View, StyleSheet, ScrollView} from "react-native";
-import React, {useCallback, useEffect, useState} from "react";
-import tailwind from "tailwind-react-native-classnames";
+import {useCallback, useEffect, useState} from "react";
+
 import {
     CodeField,
     Cursor,
@@ -11,7 +11,7 @@ import {
 import Button from "@components/fragments/Button";
 import Heading from "@components/fragments/Heading";
 import Panel from "@components/fragments/Panel";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 
 const styles = StyleSheet.create({
     root: {flex: 1, padding: 20},
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
 
 const CELL_COUNT = 6;
 
-const VerifyCodeScreen = ({ navigation })=> {
+const VerifyCodeScreen = ({ navigation }: any)=> {
     const [counter, setCounter] = useState(60)
 
     const [value, setValue] = useState('');

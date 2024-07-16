@@ -1,6 +1,6 @@
 import {Text, TextProps} from "react-native";
-import tw from "tailwind-react-native-classnames";
-import { cn } from '../../utils/classesMerge';
+import tw from "twrnc";
+import { cn } from '@app/../../utils/classesMerge';
 
 interface HeadingProps extends TextProps {
     title: string;

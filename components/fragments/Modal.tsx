@@ -1,6 +1,6 @@
 import React from "react";
 import {StyleSheet, View, Text, Modal as NModal, Dimensions} from "react-native";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import Button from "./Button";
 import Heading from "../fragments/Heading";
 

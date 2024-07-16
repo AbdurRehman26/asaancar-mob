@@ -1,6 +1,6 @@
 import {ScrollView, View} from "react-native";
 import Heading from "@components/fragments/Heading";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import React, {useState} from "react";
 import Button from "@components/fragments/Button";
 import DropDownPicker from 'react-native-dropdown-picker';

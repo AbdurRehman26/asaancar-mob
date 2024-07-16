@@ -1,5 +1,5 @@
-import { Image, Text, View} from "react-native";
-import tw from "tailwind-react-native-classnames";
+import { Text, View} from "react-native";
+import tw from "twrnc";
 import Heading from "@components/fragments/Heading";
 import Button from "@components/fragments/Button";
 import Colors from "@constants/Colors";

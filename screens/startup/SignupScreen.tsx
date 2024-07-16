@@ -3,7 +3,7 @@ import {Text, View} from "react-native";
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import PhoneInput from "react-native-phone-number-input";
 import {Link} from "@react-navigation/native";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import Heading from "@components/fragments/Heading";
 import Button from "@components/fragments/Button";
 

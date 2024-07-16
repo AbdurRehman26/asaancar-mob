@@ -1,8 +1,8 @@
 import {Text, View, TouchableOpacity, StyleSheet, ScrollView} from "react-native";
 import VehicleMediaSwiper from "@components/VehicleMediaSwiper";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import {Avatar, Button, Icon} from "react-native-elements";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import React, {useState} from "react";
 
 const styles = StyleSheet.create({
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
     },
 });
-const CustomRadioButton = ({ label, selected, onSelect }) => (
+const CustomRadioButton = ({ label, selected, onSelect }: any) => (
     <TouchableOpacity
         style={[styles.radioButton,
             { backgroundColor: selected ? '#007BFF' : '#FFF' }]}
@@ -42,7 +42,7 @@ const CustomRadioButton = ({ label, selected, onSelect }) => (
     </TouchableOpacity>
 );
 const VehicleDetailScreen = ()=> {
-    const [selectedValue, setSelectedValue] = useState(null);
+    const [selectedValue, setSelectedValue] = useState('');
 
     return (
         <View style={{ flex: 1, justifyContent: 'space-between'}}>
@@ -55,7 +55,7 @@ const VehicleDetailScreen = ()=> {
                 <Text style={tw`font-semibold text-2xl`}>200/hr</Text>
             </View>
             <View style={tw`flex-row px-4 items-center`}>
-                <Icon name={'star'}></Icon>
+                <Icon tvParallaxProperties={false} type={'ionicon'} name={'star'}></Icon>
                 <Text style={tw` text-xl`}>5.0 -</Text>
                 <Text style={tw` text-xl`}> 10 Trips</Text>
             </View>
@@ -78,8 +78,8 @@ const VehicleDetailScreen = ()=> {
                         </View>
                     </View>
                     <View style={tw`flex-row`}>
-                        <Icon name={'message'} />
-                        <Icon name={'call'} />
+                        <Icon tvParallaxProperties={false} type={'ionicon'} name={'message'} />
+                        <Icon tvParallaxProperties={false} type={'ionicon'} name={'call'} />
                     </View>
                 </View>
             </View>

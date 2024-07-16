@@ -1,7 +1,6 @@
 import {Text, View} from "react-native";
 import React from "react";
-import tw from "tailwind-react-native-classnames";
-import Colors from "@constants/Colors";
+import tw from "twrnc";
 
 interface AddressProps{
     title: string

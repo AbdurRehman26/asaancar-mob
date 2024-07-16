@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import Map from "@components/Map";
 import React from "react";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 
 const MapScreen = () => {
 

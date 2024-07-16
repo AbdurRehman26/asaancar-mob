@@ -1,7 +1,7 @@
 import {SafeAreaView} from "react-native-safe-area-context";
-import {Text, TouchableOpacity, View} from "react-native";
+import {Text, View} from "react-native";
 import React, {useCallback, useEffect} from "react";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import { Icon } from 'react-native-elements'
 import Colors from "@constants/Colors";
 import * as Location from 'expo-location';
@@ -12,7 +12,7 @@ import {
     setOrigin,
 } from "@app/shared/slices/navigationSlice"
 
-const AllowLocation = ({ navigation })=> {
+const AllowLocation = ({ navigation }: any)=> {
 
     const dispatch = useDispatch();
     const origin = useSelector(selectOrigin);

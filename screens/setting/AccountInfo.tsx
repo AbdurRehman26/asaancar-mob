@@ -2,10 +2,10 @@ import {ScrollView, Text, TextInput, View} from "react-native";
 import React from "react";
 import Panel from "@components/fragments/Panel";
 import Button from "@components/fragments/Button";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import {Avatar} from "react-native-elements";
 import InputText from "@components/fragments/InputText";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 
 const AccountInfo = () => {
     return (

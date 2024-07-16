@@ -1,38 +1,10 @@
-import {Text, View, TouchableOpacity, StyleSheet, ScrollView, Image} from "react-native";
-import VehicleMediaSwiper from "@components/VehicleMediaSwiper";
-import tw from "tailwind-react-native-classnames";
-import {Avatar, Button, Icon} from "react-native-elements";
-import tailwind from "tailwind-react-native-classnames";
-import React, {useState} from "react";
+import {Text, View, Image} from "react-native";
+import tw from "twrnc";
+import {Button, Icon} from "react-native-elements";
+import React from "react";
 import {SafeAreaView} from "react-native-safe-area-context";
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#F5F5F5',
-    },
-    radioButton: {
-        marginRight: 10,
-        paddingVertical: 12,
-        paddingHorizontal: 16,
-        borderRadius: 8,
-        marginVertical: 8,
-        borderWidth: 1,
-        borderColor: '#007BFF',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        width: 100,
-    },
-    radioButtonText: {
-        fontSize: 16,
-    },
-});
-
 const BookingPreviewScreen = ()=> {
-    const [selectedValue, setSelectedValue] = useState(null);
     const imageUri = 'https://fastly.picsum.photos/id/1/200/200.jpg?hmac=jZB9EZ0Vtzq-BZSmo7JKBBKJLW46nntxq79VMkCiBG8'
 
     return (
@@ -51,7 +23,7 @@ const BookingPreviewScreen = ()=> {
                     <View>
                         <Text style={tw`font-bold text-lg`}>Tesla Roadster</Text>
                         <View style={tw`flex-row items-center`}>
-                            <Icon name={'star'}></Icon>
+                            <Icon type={'ionicon'} tvParallaxProperties={false} name={'star'}></Icon>
                             <Text style={tw` text-xl`}>5.0 -</Text>
                             <Text style={tw` text-xl`}> 10 Trips</Text>
                         </View>
@@ -67,7 +39,7 @@ const BookingPreviewScreen = ()=> {
                             <Text>5 PM</Text>
                         </View>
                         <View>
-                            <Text>------></Text>
+                            <Text>{'------ >'}</Text>
                         </View>
                         <View>
                             <Text>10 Aug, Thu</Text>
@@ -80,7 +52,7 @@ const BookingPreviewScreen = ()=> {
                     <Text style={tw`font-bold text-lg`}>Pickup</Text>
                     <View style={tw`flex-row rounded items-center p-2`}>
                         <View>
-                            <Icon color={'red'} name={'map'}/>
+                            <Icon type={'ionicon'} tvParallaxProperties={false} color={'red'} name={'map'}/>
                         </View>
                         <View>
                             <Text>Karachi, 75100</Text>

@@ -1,12 +1,12 @@
 import {ScrollView, Text, View} from "react-native";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import Map from "@components/Map";
 import React from "react";
-import tw from "tailwind-react-native-classnames";
-import Button from "@components/Button";
+import tw from "twrnc";
+import Button from "@components/fragments/Button";
 import Colors from "@constants/Colors";
 import {Avatar} from "react-native-elements";
-import Heading from "@components/Heading";
+import Heading from "@components/fragments/Heading";
 import { Icon } from "react-native-elements";
 
 const RideDetail = () => {
@@ -31,6 +31,7 @@ const RideDetail = () => {
                         <View>
                             <Heading twClass={`font-normal text-lg ml-2`} title={'Name of Driver'}/>
                             <Icon
+                                tvParallaxProperties={false}
                                 style={tailwind`p-2 bg-transparent rounded-full w-10`}
                                 type="antdesign"
                                 color="gold"
@@ -42,6 +43,7 @@ const RideDetail = () => {
                         <Heading twClass={`text-lg`} title={'City Aspire'}/>
                         <View style={tw`flex-row items-center`}>
                             <Icon
+                                tvParallaxProperties={false}
                                 style={tailwind`p-2 bg-transparent rounded-full w-10`}
                                 type="antdesign"
                                 color="gold"
@@ -59,6 +61,7 @@ const RideDetail = () => {
                         <Heading title={'Ride Info'}/>
                         <View style={tw`flex-row mt-2 items-center`}>
                             <Icon
+                                tvParallaxProperties={false}
                                 style={tailwind`bg-transparent mr-2 rounded-full w-6`}
                                 type="antdesign"
                                 color="gold"
@@ -68,6 +71,7 @@ const RideDetail = () => {
                         </View>
                         <View style={tw`mt-4 flex-row items-center`}>
                             <Icon
+                                tvParallaxProperties={false}
                                 style={tailwind`bg-transparent mr-2 rounded-full w-6`}
                                 type="ionicon"
                                 color="black"

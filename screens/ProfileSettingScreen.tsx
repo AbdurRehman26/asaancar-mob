@@ -1,15 +1,15 @@
 import {View, ScrollView} from "react-native";
 import React, {useState} from "react";
-import tailwind from "tailwind-react-native-classnames";
+import tailwind from "twrnc";
 import {Avatar} from "react-native-elements";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import Button from "@components/fragments/Button";
 import Colors from "@constants/Colors";
 import Heading from "@components/fragments/Heading";
 import Panel from "@components/fragments/Panel";
 import {Modal} from "@components/fragments/Modal";
 
-const ProfileSettingScreen = ({ navigation })=> {
+const ProfileSettingScreen = ({ navigation }: any)=> {
 
     const [openModal, setOpenModal] = useState(false);
 

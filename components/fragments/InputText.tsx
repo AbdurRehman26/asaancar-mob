@@ -1,7 +1,7 @@
 import {Text, TextInput, View} from "react-native";
 import React, {useState} from "react";
-import tw from "tailwind-react-native-classnames";
-import {cn} from "../../utils/classesMerge";
+import tw from "twrnc";
+import {cn} from "@app/../../utils/classesMerge";
 
 interface InputTextProps{
     placeHolder?: string;

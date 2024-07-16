@@ -1,10 +1,10 @@
-import {Text, View} from "react-native";
-import tailwind from "tailwind-react-native-classnames";
+import {View} from "react-native";
+import tailwind from "twrnc";
 import Map from "@components/Map";
 import Button from "@components/fragments/Button";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import * as Location from 'expo-location';
-import {selectOrigin} from "@app/slices/navigationSlice";
+import {selectOrigin} from "@app/shared/slices/navigationSlice";
 import {useSelector} from "react-redux";
 import Heading from "@components/fragments/Heading";
 

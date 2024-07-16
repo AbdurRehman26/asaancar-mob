@@ -14,7 +14,7 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 import {useDispatch, useSelector} from "react-redux";
 import {selectUserType, setUserType} from "@app/shared/slices/userSlice";
 import ROLE from "@constants/Role";
-import tw from "tailwind-react-native-classnames";
+import tw from "twrnc";
 import Heading from "@components/fragments/Heading";
 import Colors from "@constants/Colors";
 import {Avatar} from "react-native-elements";
