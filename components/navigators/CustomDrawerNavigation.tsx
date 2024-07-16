@@ -12,14 +12,14 @@ import {
 
 import Ionicons from "react-native-vector-icons/Ionicons";
 import {useDispatch, useSelector} from "react-redux";
-import {selectUserType, setUserType} from "@app/slices/userSlice";
+import {selectUserType, setUserType} from "@app/shared/slices/userSlice";
 import ROLE from "@constants/Role";
 import tw from "tailwind-react-native-classnames";
-import Heading from "../fragments/Heading";
+import Heading from "@components/fragments/Heading";
 import Colors from "@constants/Colors";
 import {Avatar} from "react-native-elements";
 import React from "react";
-import Button from "../fragments/Button";
+import Button from "@components/fragments/Button";
 
 const CustomDrawerNavigation = (props: any) => {
 

@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {
     selectOrigin,
     setOrigin,
-} from "@app/slices/navigationSlice"
+} from "@app/shared/slices/navigationSlice"
 
 const AllowLocation = ({ navigation })=> {
 
@@ -72,10 +72,7 @@ const AllowLocation = ({ navigation })=> {
                 style={tailwind`mt-10`}>
 
                 <Button title={'Allow Location Access'} onPress={allowLocation}/>
-
-                <TouchableOpacity>
-                    <Text style={tailwind`mt-5 rounded p-4 bg-purple-100 text-center text-purple-600 font-bold`}>Enter Location Manually</Text>
-                </TouchableOpacity>
+                <Button isDisabled={true} title={'Enter Location Manually'} onPress={() => console.log()}/>
 
             </View>
 

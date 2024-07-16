@@ -15,7 +15,7 @@ const Stack = createNativeStackNavigator<StackList>();
 
 const StartUpStackNavigation = () => {
   return (
-      <Stack.Navigator initialRouteName="MainScreenNavigation">
+      <Stack.Navigator initialRouteName="VerifyCodeScreen">
           <Stack.Screen
               name="VerifyCodeScreen"
               component={VerifyCodeScreen}

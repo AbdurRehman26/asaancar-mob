@@ -1,6 +1,6 @@
 const colors = {
     primary: 'blue-900',
-    primaryDisabled : 'blue-700',
+    primaryDisabled : 'blue-300',
     danger : 'red-600',
     success: 'green-600',
     gray: 'gray-600',
