@@ -1,11 +1,23 @@
-import { configureStore } from "@reduxjs/toolkit";
-import navigationReducer from "./slices/navigationSlice";
-import userReducer from "./slices/userSlice";
+import { EnhancedStore } from '@reduxjs/toolkit';
+import * as slices from './slices';
+import { StateType } from './types';
 
-export const store = configureStore({
-  reducer: { navigation: navigationReducer, user: userReducer },
-});
+type SlicesType = typeof slices;
+export type GlobalStateType = StateType<SlicesType>;
+export type GlobalStoreType = EnhancedStore<GlobalStateType, any, any>;
 
+let globalReduxStore: GlobalStoreType;
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export function setGlobalStore(store: EnhancedStore) {
+  globalReduxStore = store;
+
+  return globalReduxStore;
+}
+
+export function getGlobalStore() {
+  return globalReduxStore;
+}
+
+export const GlobalDispatch: GlobalStoreType['dispatch'] = (action) => {
+  return globalReduxStore.dispatch(action);
+};
