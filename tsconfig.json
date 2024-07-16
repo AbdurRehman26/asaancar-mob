@@ -13,7 +13,7 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@screens/*": ["src/screens/*"],
-      "@constants/*": ["constants/*"],
+      "@constants/*": ["src/app/shared/constants/*"],
       "@app/*": ["src/app/*"],
     }
   }
