@@ -14,6 +14,7 @@ export type StackList = {
 const Stack = createNativeStackNavigator<StackList>();
 
 const StartUpStackNavigation = () => {
+    console.log(1)
   return (
       <Stack.Navigator initialRouteName="VerifyCodeScreen">
           <Stack.Screen

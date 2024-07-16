@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios';
-import { Exception } from '@shared/exceptions/Exception';
-import { isAxiosError } from '@shared/lib/api/isAxiosError';
-import { isException } from '@shared/lib/errors/isException';
+import { Exception } from '@app/shared/exceptions/Exception';
+import { isAxiosError } from '@app/shared/lib/api/isAxiosError';
+import { isException } from '@app/shared/lib/errors/isException';
 
 interface CanShowMessage {
     fallbackMessage: string;

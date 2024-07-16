@@ -35,6 +35,7 @@ export abstract class Repository<T> {
         if (typeof repository[method] === 'function') {
             return (repository[method] as any)(...(args ?? []));
         } else {
+            // @ts-ignore
             throw new Error(`Undefined method '${method}' on repository '${(repository as any)?.name || 'Unknown'}'`);
         }
     }

@@ -1,10 +1,8 @@
 import { PayloadAction, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { instanceToPlain } from 'class-transformer';
-import { ApplicationEventsEnum } from '@shared/constants/ApplicationEventsEnum';
-import { LoginRequestDto } from '@shared/dto/LoginRequestDto';
-import { SignUpRequestDto } from '@shared/dto/SignUpRequestDto';
-import { AuthenticatedUserEntity } from '@shared/entities/AuthenticatedUserEntity';
-import { UserEntity } from '@shared/entities/UserEntity';
+import { ApplicationEventsEnum } from '@app/shared/constants/ApplicationEventsEnum';
+import { AuthenticatedUserEntity } from '@app/shared/entities/AuthenticatedUserEntity';
+import { UserEntity } from '@app/shared/entities/UserEntity';
 import { isAxiosError } from '@app/shared/lib/api/isAxiosError';
 import { app } from '@app/shared/lib/app';
 import { isException } from '@app/shared/lib/errors/isException';
@@ -24,7 +22,7 @@ interface StateType {
 
 type AuthenticatePayload = PayloadAction<AuthenticatedUserEntity, string, any, Error>;
 
-export const authenticateAction = createAsyncThunk('auth/authenticate', async (input: LoginRequestDto, thunkAPI) => {
+export const authenticateAction = createAsyncThunk('auth/authenticate', async (input: any, thunkAPI) => {
     const eventService = app(EventService);
     const authenticationService = app(AuthenticationService);
     const authenticationRepository = app(AuthenticationRepository);
@@ -50,7 +48,7 @@ export const authenticateAction = createAsyncThunk('auth/authenticate', async (i
     }
 });
 
-export const registerAction = createAsyncThunk('auth/register', async (input: SignUpRequestDto, thunkAPI) => {
+export const registerAction = createAsyncThunk('auth/register', async (input: any, thunkAPI) => {
     const authenticationService = app(AuthenticationService);
     const authenticationRepository = app(AuthenticationRepository);
 

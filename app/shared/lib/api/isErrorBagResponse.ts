@@ -1,8 +1,8 @@
 import { AxiosError } from 'axios';
-import { Exception } from '@shared/exceptions/Exception';
-import { ValidationException } from '@shared/exceptions/ValidationException';
-import { isAxiosError } from '@shared/lib/api/isAxiosError';
-import { isException } from '@shared/lib/errors/isException';
+import { Exception } from '@app/shared/exceptions/Exception';
+import { ValidationException } from '@app/shared/exceptions/ValidationException';
+import { isAxiosError } from '@app/shared/lib/api/isAxiosError';
+import { isException } from '@app/shared/lib/errors/isException';
 
 export function isErrorBagResponse(error: Exception | AxiosError) {
     if (isAxiosError(error)) {
