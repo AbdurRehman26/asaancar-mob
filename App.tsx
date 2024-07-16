@@ -12,6 +12,7 @@ import { store } from "@app/shared/store";
 
 export default function App() {
   return (
+    // @ts-ignore
     <Provider store={store}>
       <NavigationContainer>
         <SafeAreaProvider>
