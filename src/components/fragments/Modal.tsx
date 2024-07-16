@@ -2,7 +2,7 @@ import React from "react";
 import {StyleSheet, View, Text, Modal as NModal, Dimensions} from "react-native";
 import tw from "twrnc";
 import Button from "./Button";
-import Heading from "../fragments/Heading";
+import Heading from "./Heading";
 
 type ModalProps = {
     isVisible: boolean;
@@ -27,8 +27,8 @@ export const Modal = ({isVisible = false, title, onRequestClose}: ModalProps) =>
                     </View>
 
 
-                    <View style={tw`absolute bottom-0 right-0`}>
-                        <Button tWStyles={`w-64 m-8`} title={'Close'} onPress={onRequestClose}/>
+                    <View style={tw``}>
+                        <Button tWStyles={`w-full`} title={'Close'} onPress={onRequestClose}/>
                     </View>
                 </View>
             </View>

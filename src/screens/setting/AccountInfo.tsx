@@ -1,8 +1,7 @@
-import {ScrollView, Text, TextInput, View} from "react-native";
+import {ScrollView, View} from "react-native";
 import React from "react";
 import Panel from "@components/fragments/Panel";
 import Button from "@components/fragments/Button";
-import tailwind from "twrnc";
 import {Avatar} from "react-native-elements";
 import InputText from "@components/fragments/InputText";
 import tw from "twrnc";
@@ -26,7 +25,7 @@ const AccountInfo = () => {
                 <InputText label={'Phone Number'} placeHolder={'Enter Your Phone Number'}/>
             </ScrollView>
             <Panel>
-                <Button tWStyles={`w-80`} title={'Update'} onPress={() => console.log(1)}/>
+                <Button tWStyles={`w-full`} title={'Update'} onPress={() => console.log(1)}/>
             </Panel>
         </View>
     )

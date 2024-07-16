@@ -11,10 +11,10 @@
     "emitDecoratorMetadata": true,
 
     "paths": {
-      "@components/*": ["components/*"],
-      "@screens/*": ["screens/*"],
+      "@components/*": ["src/components/*"],
+      "@screens/*": ["src/screens/*"],
       "@constants/*": ["constants/*"],
-      "@app/*": ["app/*"],
+      "@app/*": ["src/app/*"],
     }
   }
 }

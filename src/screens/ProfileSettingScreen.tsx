@@ -14,7 +14,7 @@ const ProfileSettingScreen = ({ navigation }: any)=> {
     const [openModal, setOpenModal] = useState(false);
 
     return (
-        <View>
+        <View style={{ flex: 1, justifyContent: 'space-between'}}>
             <ScrollView>
             <View style={tw`flex-row h-24 p-2 px-4 mt-3 bg-white shadow`}>
 

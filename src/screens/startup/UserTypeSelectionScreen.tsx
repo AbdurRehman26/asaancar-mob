@@ -12,7 +12,7 @@ const UserTypeSelectionScreen = ({ navigation }: any) => {
 
     const setUserMode = useCallback((role: string) => {
         dispatch(setUserType(role))
-        navigation.navigate('MainScreen');
+        navigation.navigate('MainScreenNavigation');
 
     }, [])
 

@@ -8,24 +8,90 @@ import PaymentMethodStackNavigation from "@components/navigators/PaymentMethodSt
 import Panel from "@components/fragments/Panel";
 import Heading from "@components/fragments/Heading";
 import InviteFriendScreen from "@screens/InviteFriendScreen";
-import StartUpStackNavigation from "@components/navigators/StartUpStackNavigation";
+import {selectUserType} from "@app/shared/slices/userSlice";
+import {useSelector} from "react-redux";
 
 const Drawer = createDrawerNavigator();
 
 const MainScreenNavigation = () => {
-    return <DriverScreenNavigation/>
+    const userType = useSelector(selectUserType)
+
+    const mainNavigations = {
+        'DRIVER' : <DriverScreenNavigation/>,
+        'PASSENGER' : <PassengerScreenNavigation/>,
+    }
+
+    // @ts-ignore
+    return mainNavigations[userType];
 }
 
 const DriverScreenNavigation = () => {
     return (
         <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
             <Drawer.Screen
-                name="StartUpStackNavigation"
-                component={StartUpStackNavigation}
+                name="Profile Settings"
+                component={ProfileSettingStackNavigation}
                 options={{ headerShown: true, drawerIcon: () => (
                         <Icon tvParallaxProperties={false} type='ionicon' name={'person-outline'} />
                     ) }}
             />
+            <Drawer.Screen
+                name="My Vehicles"
+                component={VehicleStackNavigation}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'car-outline'} />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="Trips"
+                component={RideList}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'map-outline'} />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="Payment Methods"
+                component={PaymentMethodStackNavigation}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'card-outline'} />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="Wallet (Coming Soon)"
+                component={() => (<Panel panelClass={'items-center justify-center p-20 h-full'}><Heading title={'Coming Soon'}/></Panel>)}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'wallet-outline'} />
+                    )
+                }}
+            />
+            <Drawer.Screen
+                name="Invite Friends"
+                component={InviteFriendScreen}
+                options={{
+                    headerShown: true,
+                    drawerIcon: () => (
+                        <Icon tvParallaxProperties={false} type='ionicon' name={'send-outline'} />
+                    )
+                }}
+            />
+        </Drawer.Navigator>
+    )
+}
+
+const PassengerScreenNavigation = () => {
+    return (
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
             <Drawer.Screen
                 name="Profile Settings"
                 component={ProfileSettingStackNavigation}

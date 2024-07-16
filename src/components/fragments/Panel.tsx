@@ -3,7 +3,7 @@ import {View} from "react-native";
 import Heading from "./Heading";
 import Colors from "@constants/Colors";
 import {Icon} from "react-native-elements";
-import {cn} from "@app/../../utils/classesMerge";
+import { cn } from '@app/shared/lib/utils/classesMerge';
 
 interface IPanelProps{
     icon?: string;
