@@ -10,28 +10,40 @@ import Heading from "@components/fragments/Heading";
 import InviteFriendScreen from "@screens/InviteFriendScreen";
 import {selectUserType} from "@app/shared/slices/userSlice";
 import {useSelector} from "react-redux";
+import HomeScreen from "@screens/HomeScreen";
 
 const Drawer = createDrawerNavigator();
 
 const MainScreenNavigation = () => {
     const userType = useSelector(selectUserType)
 
-    const mainNavigations = {
+    const MainNavigations = {
         'DRIVER' : <DriverScreenNavigation/>,
         'PASSENGER' : <PassengerScreenNavigation/>,
     }
 
     // @ts-ignore
-    return mainNavigations[userType];
+    return MainNavigations[userType];
 }
 
 const DriverScreenNavigation = () => {
     return (
-        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'HomeScreen'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+            <Drawer.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    headerShown: true,
+                    drawerItemStyle: {
+                        display: "none"
+                    }
+            }}
+            />
             <Drawer.Screen
                 name="Profile Settings"
                 component={ProfileSettingStackNavigation}
-                options={{ headerShown: true, drawerIcon: () => (
+                options={{
+                    headerShown: true, drawerIcon: () => (
                         <Icon tvParallaxProperties={false} type='ionicon' name={'person-outline'} />
                     ) }}
             />
@@ -91,23 +103,23 @@ const DriverScreenNavigation = () => {
 
 const PassengerScreenNavigation = () => {
     return (
-        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'Profile Settings'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+        <Drawer.Navigator defaultStatus={'closed'} initialRouteName={'HomeScreen'} drawerContent={(props) => <CustomDrawerNavigation {...props} />}>
+            <Drawer.Screen
+                name="HomeScreen"
+                component={HomeScreen}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: {
+                        display: "none"
+                    }
+                }}
+            />
             <Drawer.Screen
                 name="Profile Settings"
                 component={ProfileSettingStackNavigation}
                 options={{ headerShown: true, drawerIcon: () => (
                         <Icon tvParallaxProperties={false} type='ionicon' name={'person-outline'} />
                     ) }}
-            />
-            <Drawer.Screen
-                name="My Vehicles"
-                component={VehicleStackNavigation}
-                options={{
-                    headerShown: true,
-                    drawerIcon: () => (
-                        <Icon tvParallaxProperties={false} type='ionicon' name={'car-outline'} />
-                    )
-                }}
             />
             <Drawer.Screen
                 name="Trips"
