@@ -19,10 +19,9 @@ const AllowLocation = ({ navigation }: any)=> {
 
     useEffect(() => {
         if(origin?.location?.lng){
-            navigation.navigate('UserTypeSelectionScreen')
+            navigation.navigate('HomeScreen')
         }
     }, []);
-
 
     const allowLocation = useCallback(async () => {
         let { status } = await Location.requestForegroundPermissionsAsync();
@@ -41,7 +40,7 @@ const AllowLocation = ({ navigation }: any)=> {
                 description : 'Karachi'
             }));
 
-            navigation.navigate('UserTypeSelectionScreen')
+            navigation.navigate('HomeScreen')
     }, []);
     
     return (

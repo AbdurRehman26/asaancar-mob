@@ -1,36 +1,46 @@
 import {Text, View} from "react-native";
 import Map from "@components/Map";
-import React from "react";
+import React, {useEffect} from "react";
 import tw from "twrnc";
 import Panel from "@components/fragments/Panel";
 import InputText from "@components/fragments/InputText";
 import Heading from "@components/fragments/Heading";
 import {Icon} from "react-native-elements";
+import {selectOrigin} from "@app/shared/slices/navigationSlice";
+import {useSelector} from "react-redux";
 
-const MapScreen = () => {
+const HomeScreen = ({ navigation }) => {
 
-  return (
-    <View>
-      <View style={tw`h-4/7`}>
-        <Map />
-      </View>
-        <View style={tw`h-3/7`}>
-            <Panel panelClass={'h-full pt-7 px-0 flex-col items-start'}>
-                <InputText placeHolder={'Set your location'} twClasses={'w-80'}/>
+    const origin = useSelector(selectOrigin)
 
-                <View style={tw`flex-row items-center mt-2 border-b-2 border-gray-100 w-full p-4`}>
-                    <Icon type={'ionicon'} style={tw`bg-gray-100 rounded-full p-4 mr-4`} name={'home'} />
-                    <View>
-                        <Text>Home</Text>
-                        <Text>D-68/A Shah Faisal Town Malir Halt</Text>
+    useEffect(() => {
+        if(! origin){
+            navigation.navigate('AllowLocation')
+        }
+
+    }, [origin]);
+
+      return (
+        <View>
+          <View style={tw`h-4/7`}>
+            <Map />
+          </View>
+            <View style={tw`h-3/7`}>
+                <Panel panelClass={'h-full pt-7 px-0 flex-col items-start'}>
+                    <InputText placeHolder={'Set your location'} twClasses={'w-80'}/>
+
+                    <View style={tw`flex-row items-center mt-2 border-b-2 border-gray-100 w-full p-4`}>
+                        <Icon type={'ionicon'} style={tw`bg-gray-100 rounded-full p-4 mr-4`} name={'home'} />
+                        <View>
+                            <Text>Home</Text>
+                            <Text>D-68/A Shah Faisal Town Malir Halt</Text>
+                        </View>
                     </View>
-                </View>
 
-
-            </Panel>
+                </Panel>
+            </View>
         </View>
-    </View>
-  );
+      );
 };
 
-export default MapScreen;
+export default HomeScreen;

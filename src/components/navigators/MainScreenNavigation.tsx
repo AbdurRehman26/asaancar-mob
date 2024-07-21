@@ -11,6 +11,7 @@ import InviteFriendScreen from "@screens/InviteFriendScreen";
 import {selectUserType} from "@app/shared/slices/userSlice";
 import {useSelector} from "react-redux";
 import HomeScreen from "@screens/HomeScreen";
+import AllowLocation from "@screens/startup/AllowLocation";
 
 const Drawer = createDrawerNavigator();
 
@@ -38,6 +39,16 @@ const DriverScreenNavigation = () => {
                         display: "none"
                     }
             }}
+            />
+            <Drawer.Screen
+                name="AllowLocation"
+                component={AllowLocation}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: {
+                        display: "none"
+                    }
+                }}
             />
             <Drawer.Screen
                 name="Profile Settings"
@@ -107,6 +118,16 @@ const PassengerScreenNavigation = () => {
             <Drawer.Screen
                 name="HomeScreen"
                 component={HomeScreen}
+                options={{
+                    headerShown: false,
+                    drawerItemStyle: {
+                        display: "none"
+                    }
+                }}
+            />
+            <Drawer.Screen
+                name="AllowLocation"
+                component={AllowLocation}
                 options={{
                     headerShown: false,
                     drawerItemStyle: {

@@ -1,100 +1,68 @@
-import MapView, {PROVIDER_GOOGLE, Marker }  from "react-native-maps";
-import React, { useEffect, useRef } from "react";
-import {
-  selectDestination,
-  selectOrigin, setOrigin,
-  setTravelTimeInfo,
-} from "@app/shared/slices/navigationSlice";
-import { useDispatch, useSelector } from "react-redux";
+import React, {useCallback, useState} from 'react'
+import { Image, StyleSheet, View } from 'react-native'
+import MapView from 'react-native-maps'
 
-import { GOOGLE_MAPS_API_KEY } from "@env";
-import MapViewDirections from "react-native-maps-directions";
-import {StyleSheet} from "react-native";
+import marker from '../../assets/icons8-marker.png'
+
+const latitudeDelta = 0.025
+const longitudeDelta = 0.025
 
 const Map = () => {
-  const dispatch = useDispatch();
-  const origin = useSelector(selectOrigin);
-  const destination = useSelector(selectDestination);
-  const mapRef = useRef<MapView>(null);
+  const [state, setState] = useState({
+    region: {
+      latitudeDelta,
+      longitudeDelta,
+      latitude: 25.1948475,
+      longitude: 55.2682899
+    }
+  })
 
-  useEffect(() => {
-    if (!origin || !destination) return;
+  const onRegionChange = useCallback((region) => {
+    setState(region)
+  }, []);
 
-    mapRef.current?.fitToSuppliedMarkers(["origin", "destination"], {
-      edgePadding: { top: 50, right: 50, bottom: 50, left: 50 },
-    });
-  }, [origin, destination]);
-
-  useEffect(() => {
-    if (!origin || !destination) return;
-
-    const getTravelTime = async () => {
-      const url = `https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=${origin.description}&destinations=${destination.description}&key=${GOOGLE_MAPS_API_KEY}`;
-      const response = await fetch(url);
-      const data = await response.json();
-      dispatch(setTravelTimeInfo(data.rows[0].elements[0]));
-    };
-
-    getTravelTime();
-  }, [origin, destination, GOOGLE_MAPS_API_KEY]);
+  const {region} = state
 
   return (
-    <MapView
-      style={{ ...StyleSheet.absoluteFillObject }}
-      provider={PROVIDER_GOOGLE}
-      initialRegion={{
-        latitude: origin?.location?.lat || 37.78825,
-        longitude: origin?.location?.lng || -122.4324,
-        latitudeDelta: 0.005,
-        longitudeDelta: 0.005,
-      }}
-      mapType="mutedStandard"
-    >
-      {origin && destination && (
-        <MapViewDirections
-
-          origin={origin.description}
-          destination={destination.description}
-          apikey={GOOGLE_MAPS_API_KEY}
-          strokeWidth={3}
-          strokeColor="blue"
-          lineDashPattern={[0]}
+      <View style={styles.map}>
+        <MapView
+            style={styles.map}
+            initialRegion={region}
+            onRegionChangeComplete={onRegionChange}
         />
-      )}
-
-      {origin?.location && (
-        <Marker
-          draggable
-          onDragEnd={(markerDragEvent) => dispatch(setOrigin({
-            location: {
-              lat: markerDragEvent.nativeEvent.coordinate.latitude,
-              lng: markerDragEvent.nativeEvent.coordinate.longitude
-            },
-            description: 'Karachi'
-          }))}
-          coordinate={{
-            latitude: origin.location.lat,
-            longitude: origin.location.lng,
-          }}
-          title="Origin"
-          description={origin.description}
-          identifier="origin"
-        />
-      )}
-
-      {destination?.location && (
-        <Marker
-          coordinate={{
-            latitude: destination.location.lat,
-            longitude: destination.location.lng,
-          }}
-          title="Destination"
-          description={destination.description}
-          identifier="destination"
-        />
-      )}
-    </MapView>
-  );
-};
+        <View style={styles.markerFixed}>
+          <Image style={styles.marker} source={marker}/>
+        </View>
+      </View>
+  )
+}
 
 export default Map;
+
+const styles = StyleSheet.create({
+  map: {
+    flex: 1
+  },
+  markerFixed: {
+    left: '50%',
+    marginLeft: -24,
+    marginTop: -48,
+    position: 'absolute',
+    top: '50%'
+  },
+  marker: {
+    height: 48,
+    width: 48
+  },
+  footer: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    bottom: 0,
+    position: 'absolute',
+    width: '100%'
+  },
+  region: {
+    color: '#fff',
+    lineHeight: 20,
+    margin: 20
+  }
+});
